@@ -50,22 +50,20 @@ class telescope:
         
         self.aperture = D_o*u.mm
         self.fRatio = f_R
-        self.fov_e = self.fov_e
+        self.fov_e = fov_e
+        self.f_e = f_e*u.mm
         self.f_o = self.aperture*self.fRatio
-        return self.f_o
+        self.barlow = barlow
+        self.P_reducer = reducer
 
         if barlow != None:
-            self.barlow = barlow
             self.f_o = self.barlow*f_o*u.mm
-            return self.f_o
         elif reducer != None:
-            self.P_reducer = reducer
             self.f_o = self.P_reducer*f_o*u.mm
-            return self.f_o
         else:
             pass
 
-        print(self.aperture,self.fRatio,self.fov_e,self.f_o,self.barlow,self.reducer)
+        print(self.aperture,self.fRatio,self.f_e,self.fov_e,self.f_o,self.barlow,self.P_reducer)
 
         
             
