@@ -45,7 +45,33 @@
 import numpy as np
 import astropy.units as u 
 
-class telescope():
-    def __init__(self, D_o, f_o, ):
+class telescope:
+    def __init__(self, D_o, f_R, f_e,fov_e=50*u.deg, barlow=None, reducer=None):
+        
         self.aperture = D_o*u.mm
-        self.f_o = f_o*u.mm
+        self.fRatio = f_R
+        self.fov_e = self.fov_e
+        self.f_o = self.aperture*self.fRatio
+        return self.f_o
+
+        if barlow != None:
+            self.barlow = barlow
+            self.f_o = self.barlow*f_o*u.mm
+            return self.f_o
+        elif reducer != None:
+            self.P_reducer = reducer
+            self.f_o = self.P_reducer*f_o*u.mm
+            return self.f_o
+        else:
+            pass
+
+        print(self.aperture,self.fRatio,self.fov_e,self.f_o,self.barlow,self.reducer)
+
+        
+            
+    def calc_mag(self):
+        return self.f_o/self.f_e
+        
+
+
+
