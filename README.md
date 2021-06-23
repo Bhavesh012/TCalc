@@ -38,9 +38,7 @@ Lmag_limit = Limiting Mag of Telescope = 2 + 5*np.log(D_o)
 
 SB = Surface Brightness = 2*(D_EP**2) (in %)
 
-
 PPI = Power per inch = M/D_o(in)
-
 
 Barlow = 2*f_o
 
