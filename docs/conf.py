@@ -17,13 +17,13 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Telescope Calculator'
-copyright = '2021, Bhavesh Rajpoot'
-author = 'Bhavesh Rajpoot, Binod Bhattarai, Dylan Benton, Ryan Keenan'
+project = 'Group 09 Project'
+copyright = '2021, Test Authors'
+author = 'Test Authors'
 master_doc='index'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '2009'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,10 +31,7 @@ release = '0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.autodoc', 
-    "sphinx.ext.napoleon"
-]
+extensions = ["sphinx.ext.autodoc","sphinx.ext.napoleon"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
