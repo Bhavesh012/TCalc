@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 project = 'Telescope Calculator'
 copyright = '2021, Bhavesh Rajpoot'
-author = 'Bhavesh Rajpoot'
+author = 'Rajpoot, B.; Keenan, R.; Bhattarai B.; Benton, D.'
 master_doc='index'
 
 # The full version, including alpha/beta/rc tags
