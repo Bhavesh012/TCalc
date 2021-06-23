@@ -12,14 +12,14 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'Telescope Calculator'
 copyright = '2021, Bhavesh Rajpoot'
-author = 'Bhavesh Rajpoot'
+author = 'Bhavesh Rajpoot, Binod Bhattarai, Dylan Benton, Ryan Keenan'
 master_doc='index'
 
 # The full version, including alpha/beta/rc tags
