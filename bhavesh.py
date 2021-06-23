@@ -57,9 +57,9 @@ class telescope:
         self.P_reducer = reducer
 
         if barlow != None:
-            self.f_o = self.barlow*f_o*u.mm
+            self.f_o = self.barlow*self.f_o*u.mm
         elif reducer != None:
-            self.f_o = self.P_reducer*f_o*u.mm
+            self.f_o = self.P_reducer*self.f_o*u.mm
         else:
             pass
 
