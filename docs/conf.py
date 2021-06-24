@@ -36,7 +36,7 @@ release = "1.0.0"
 extensions = ["sphinx.ext.autodoc",
             "sphinx.ext.napoleon",
             "sphinx.ext.mathjax", 
-            "sphinx-mathjax-offline",
+            # "sphinx-mathjax-offline",
             "sphinx.ext.inheritance_diagram",
             'sphinx.ext.autosummary', 
             'sphinx_autopackagesummary',
