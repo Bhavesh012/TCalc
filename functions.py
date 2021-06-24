@@ -95,7 +95,9 @@ def Max_eyepiece(f_R, D_eye=7, age=None):
         float: The maximum focal length of eyepiece (:math: `f_{e-max}`) you can use with your telescope 
     
     """ 
-    if age <= 20:
+    if age is None:
+        D_eye = D_eye
+    elif age <= 20:
         D_eye = 7.5
     elif ((age> 20) and (age<= 30)):
         D_eye = 7
