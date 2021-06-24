@@ -31,8 +31,8 @@ eye_diameter_list = np.array([age_to_eye_diameter(age) for age in age_list])
 class eyepiece:
     """Class representing a single eyepiece
 
-    Initialization Args:
-        flenght: focal length of the eyepiece in mm
+    Args:
+        flenght: focal length of the eyepiece in mm  
         fov: field of view of the eyepiece in degrees. Defaults to 50 degrees.
     """
     def __init__(self, flength, fov=50):
@@ -48,7 +48,7 @@ class eyepiece:
 class telescope:
     """Class representing a telescope
 
-    Initialization Args:
+    Args:
         aperture: the size of the telescope opening in mm
         flenght: focal length of the telescope in mm
         user_eye_aperture: diameter of telescope user's eye in mm. Default is 7 mm.
