@@ -12,6 +12,7 @@ Welcome to Telescope-Calculator's documentation!
    
    telescope
    functions
+   age_eye
 
 
 
