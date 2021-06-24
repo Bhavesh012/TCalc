@@ -1,6 +1,7 @@
 import numpy as np
 import astropy.units as u 
 
+from age_eye import age_to_eye_diameter
 
 # This first set of functions are dependent ONLY on the telescope
 # and don't require any information about the eyepiece
@@ -32,6 +33,22 @@ def dawes_lim(D_o):
     """ 
     return 115.8/D_o
 
+def resolving_power(W,D_o):
+    """Calulates the Reosultion of the telescope
+    
+    Args:
+        W (float): Wavelength of light recieved (nm)
+        D_o (float): Diameter of Objective/Aperture (mm)
+
+    Returns:
+        float: Resolving power of the telescope (:math: `P_R`) (arc-sec)
+    
+    Note: 
+        This function is generally useful when you are using filters. For filter-less observations, check Dawes Limit function.
+
+    """
+    return 0.2516616*(W/D_o)
+
 def Min_magnification(D_o,D_eye=7,age=None):
     """Calulates the minimum usable magnification of the telescope 
 
@@ -44,18 +61,8 @@ def Min_magnification(D_o,D_eye=7,age=None):
     """ 
     if age is None:
         D_eye = D_eye
-    elif age <= 20:
-        D_eye = 7.5
-    elif ((age> 20) and (age<= 30)):
-        D_eye = 7
-    elif ((age> 30) and (age<= 35)):
-        D_eye = 6.5
-    elif ((age> 35) and (age<= 45)):
-        D_eye = 6
-    elif ((age> 45) and (age<= 60)):
-        D_eye = 5.5
-    else: 
-        D_eye = 5.0
+    else:
+        D_eye = age_to_eye_diameter(age)
  
     return D_o/D_eye
 
@@ -97,18 +104,8 @@ def Max_eyepiece(f_R, D_eye=7, age=None):
     """ 
     if age is None:
         D_eye = D_eye
-    elif age <= 20:
-        D_eye = 7.5
-    elif ((age> 20) and (age<= 30)):
-        D_eye = 7
-    elif ((age> 30) and (age<= 35)):
-        D_eye = 6.5
-    elif ((age> 35) and (age<= 45)):
-        D_eye = 6
-    elif ((age> 45) and (age<= 60)):
-        D_eye = 5.5
-    else: 
-        D_eye = 5.0
+    else:
+        D_eye = age_to_eye_diameter(age)
  
     return f_R*D_eye    
 
@@ -125,7 +122,6 @@ def Lmag_limit(D_o):
 
 # These next functions depend on the properties of the telescope
 # and the eyepiece, and no other information
-
 def magnification(f_o,f_e):
     """Calculates the Angular Magnification for the telescope
 
@@ -168,26 +164,6 @@ def exit_pupil(f_e,f_R):
     """
     return f_e/f_R
 
-
-
-
-
-def resolving_power(W,D_o):
-    """Calulates the Reosultion of the telescope
-    
-    Args:
-        W (float): Wavelength of light recieved (nm)
-        D_o (float): Diameter of Objective/Aperture (mm)
-
-    Returns:
-        float: Resolving power of the telescope (:math: `P_R`) (arc-sec)
-    
-    Note: 
-        This function is generally useful when you are using filters. For filter-less observations, check Dawes Limit function.
-
-    """
-    return 0.2516616*(W/D_o)
-
 def surface_brightness(D_EP):
     """Calculates the surface brightness of the object as seen from the telescope
     
@@ -198,4 +174,8 @@ def surface_brightness(D_EP):
         percentage: Surface Brightness (SB)
     """
     return 2*(D_EP**2) 
+
+
+
+
 
