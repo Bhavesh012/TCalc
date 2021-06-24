@@ -12,18 +12,18 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'Group 09 Project'
-copyright = '2021, Test Authors'
-author = 'Test Authors'
+project = 'Telescope-Calculator'
+copyright = '2021, Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton'
+author = 'Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton'
 master_doc='index'
 
 # The full version, including alpha/beta/rc tags
-release = '2009'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------

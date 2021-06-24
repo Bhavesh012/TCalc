@@ -7,14 +7,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Modules for Telescope &mdash; Group 09 Project 2009 documentation</title>
+  <title>Correlate &mdash; Telescope-Calculator 1.0.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,7 +29,6 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -54,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Group 09 Project
+            <a href="index.html" class="icon icon-home"> Telescope-Calculator
           
 
           
@@ -87,7 +84,7 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Modules for Telescope</a></li>
+<li><a class="reference internal" href="#">Correlate</a></li>
 </ul>
 </div>
             
@@ -103,7 +100,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Group 09 Project</a>
+          <a href="index.html">Telescope-Calculator</a>
         
       </nav>
 
@@ -136,13 +133,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Modules for Telescope</li>
+      <li>Correlate</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/binod.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/correlate.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,38 +152,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="modules-for-telescope">
-<span id="binod"></span><h1>Modules for Telescope<a class="headerlink" href="#modules-for-telescope" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-binod"></span><dl class="py function">
-<dt class="sig sig-object py" id="binod.magnification">
-<span class="sig-prename descclassname"><span class="pre">binod.</span></span><span class="sig-name descname"><span class="pre">magnification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_focal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o_focal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binod.magnification" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates Magnification for the telescope</p>
+  <div class="section" id="correlate">
+<span id="id1"></span><h1>Correlate<a class="headerlink" href="#correlate" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-correlate"></span><p>Functions to perform correlations</p>
+<dl class="py function">
+<dt id="correlate.cross_corr">
+<code class="sig-prename descclassname"><span class="pre">correlate.</span></code><code class="sig-name descname"><span class="pre">cross_corr</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#correlate.cross_corr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cross-correlation
+Calculate the cross correlation of array b against array a.
+:param a: numpy vector. Reference against which cross</p>
+<blockquote>
+<div><p>correlation is calculated.</p>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>t_focal</strong> (<em>float</em>) – Focal Length of the Telescope</p></li>
-<li><p><strong>o_focal</strong> (<em>float</em>) – Ocular Focal Length</p></li>
-</ul>
+<dd class="field-odd"><p><strong>b</strong> (<em>array</em>) – numpy vector. The resulting cross-correlation function
+will show how b should be shifted to line up with vector a.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Magnification of the telescope</p>
+<dd class="field-even"><p>cross-correlation function</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
+<dd class="field-odd"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="binod.true_fov">
-<span class="sig-prename descclassname"><span class="pre">binod.</span></span><span class="sig-name descname"><span class="pre">true_fov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_focal_length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binod.true_fov" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calulate the True Field of View</p>
-<p>Args:
-o_diameter(float): Ocular field stop diameter
-t_focal_length(float): Telescope focal length</p>
+<dt id="correlate.find_shift">
+<code class="sig-prename descclassname"><span class="pre">correlate.</span></code><code class="sig-name descname"><span class="pre">find_shift</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#correlate.find_shift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find offset between a and b.
+Find the offset between vector a and b that makes them line up as
+well as possible.
+:param a: Reference vector
+:type a: array
+:param b: Target vector
+:type b: array</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>True Field of View</p>
+<dd class="field-odd"><p><dl class="simple">
+<dt>the shift needed to be applied to vector b to</dt><dd><p>best match vector a</p>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>float</p>
@@ -206,7 +214,7 @@ t_focal_length(float): Telescope focal length</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, Test Authors.
+        &#169; Copyright 2021, Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton.
 
     </p>
   </div>
