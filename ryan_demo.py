@@ -1,4 +1,4 @@
-from telescope import eyepiece, telescope
+from tcalc import eyepiece, telescope
 
 piece1 = eyepiece(5, 50)
 piece2 = eyepiece(1, 50)
