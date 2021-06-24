@@ -10,7 +10,7 @@ Welcome to Telescope-Calculator's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   telescope
+   tcalc
    functions
    age_eye
 
