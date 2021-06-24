@@ -21,7 +21,7 @@ def focal_ratio(f_o,D_o):
 
     Args:
         f_o(float): Focal Length of Objective/Aperture (mm)
-        D_e(float): Diameter of Objective/Aperture (mm)
+        D_o(float): Diameter of Objective/Aperture (mm)
 
     Returns:
         float: Focal Ratio/f-number (:math: `f_R`) of the telescope
