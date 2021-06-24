@@ -23,8 +23,8 @@ setup(
     name='Telescope Calculator',
     version=get_property('__version__'),
     description='Telescope Calculator! A tool for your telescope',
-    long_description=("README.md").read_text(),
-    long_description_content_type="text/markdown",
+    # long_description=("README.md").read_text(),
+    # long_description_content_type="text/markdown",
     url='https://github.com/Bhavesh012/Telescope-Calculator',
     author='Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton',
     author_email='',
@@ -40,7 +40,7 @@ setup(
         'Topic :: Scientific/Engineering :: Astronomy',
 
         # Pick your license as you wish (should match "license" above)
-        'License :: MIT License',
+        'License :: OSI Approved :: MIT License',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
