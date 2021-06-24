@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Functions</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">Telescope-Calculator</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#welcome-to-telescope-calculator-s-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Functions</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <div class="section" id="functions">
+<span id="id1"></span><h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-functions"></span><dl class="py function">
+<dt class="sig sig-object py" id="functions.Lmag_limit">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Lmag_limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Lmag_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the magnitude of the faintest star which can be seen from the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>D_o</strong> (<em>float</em>) – Diameter of Objective/Aperture (mm)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Limiting Magnitude (LM) of telescope</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.Max_eyepiece">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Max_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_eye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Max_eyepiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the maximum focal length of eyepiece you can use on the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>D_eye</strong> (<em>float</em>) – Diameter of Eyepiece (mm); default is 7 mm</p></li>
+<li><p><strong>f_R</strong> (<em>float</em>) – Focal Ratio/f-number of telescope</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The maximum focal length of eyepiece (:math: <cite>f_{e-max}</cite>) you can use with your telescope</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.Max_magnification">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Max_magnification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Max_magnification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the maximum usable magnification of the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>D_o</strong> (<em>float</em>) – Diameter of Objective/Aperture (mm)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Maximum Usable Magnification (:math: <cite>M_max</cite>) of the telescope</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The maximum usable magnification also depends upon seeing.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.Min_eyepiece">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Min_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Min_eyepiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the minimum focal length of eyepiece you can use on the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_o</strong> (<em>float</em>) – Focal length of Objective/Aperture (mm)</p></li>
+<li><p><strong>M_max</strong> (<em>float</em>) – Maximum usable magnification</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The minimum focal length of eyepiece (:math: <cite>f_{e-min}</cite>) you can use with your telescope</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.Min_magnification">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Min_magnification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_eye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Min_magnification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the minimum usable magnification of the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>D_o</strong> (<em>float</em>) – Diameter of Objective/Aperture (mm)</p></li>
+<li><p><strong>D_eye</strong> (<em>float</em>) – Diameter of Eyepiece (mm); default is 7 mm</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Minimum Usable Magnification (:math: <cite>M_min</cite>) of the telescope</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.dawes_lim">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">dawes_lim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.dawes_lim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the Reosultion of the telescope according to the Dawes Limit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>D_o</strong> (<em>float</em>) – Diameter of Objective/Aperture (mm)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resolving power of the telescope arroding to Dawes Limit (arc-sec)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is generally useful when you are doing filter-less observations. For operation with filters, check Resolution Power function.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.exit_pupil">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">exit_pupil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_R</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.exit_pupil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the Exit Pupil of the telescope &amp; eyepiece pair</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_e</strong> (<em>float</em>) – Focal Length of eyepiece (mm)</p></li>
+<li><p><strong>f_R</strong> (<em>float</em>) – Focal Ratio of telescope</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Diameter of Exit Pupil(:math: <cite>D_EP</cite>) (mm)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For optimal usage, :math: <cite>D_EP pprox 2-3 mm</cite> is the optimum range for maximizing the resolving power of the eye</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.focal_ratio">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">focal_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.focal_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Focal Ratio for the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_o</strong> (<em>float</em>) – Focal Length of Objective/Aperture (mm)</p></li>
+<li><p><strong>D_o</strong> (<em>float</em>) – Diameter of Objective/Aperture (mm)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Focal Ratio/f-number (:math: <cite>f_R</cite>) of the telescope</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.magnification">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">magnification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.magnification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Angular Magnification for the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_o</strong> (<em>float</em>) – Focal Length of Objective/Aperture (mm)</p></li>
+<li><p><strong>f_e</strong> (<em>float</em>) – Focal Length of Eyepiece (mm)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Visual Magnification (M) of the telescope</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.resolving_power">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">resolving_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.resolving_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the Reosultion of the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>W</strong> (<em>float</em>) – Wavelength of light recieved (nm)</p></li>
+<li><p><strong>D_o</strong> (<em>float</em>) – Diameter of Objective/Aperture (mm)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Resolving power of the telescope (:math: <cite>P_R</cite>) (arc-sec)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is generally useful when you are using filters. For filter-less observations, check Dawes Limit function.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.surface_brightness">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">surface_brightness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_EP</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.surface_brightness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the surface brightness of the object as seen from the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>D_o</strong> (<em>float</em>) – Diameter of Exit Pupil (mm)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Surface Brightness (SB)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>percentage</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="functions.true_fov">
+<span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">true_fov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fov_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.true_fov" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calulates the True Field of View (FOV) of the telescope &amp; eyepiece pair</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fov_e</strong> (<em>float</em>) – FOV of eyepiece; default 50 deg</p></li>
+<li><p><strong>M</strong> (<em>float</em>) – Magnification of Telescope</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True Field of View (deg)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021, Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

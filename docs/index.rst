@@ -9,6 +9,9 @@ Welcome to Telescope-Calculator's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+   telescope
+   functions
 
 
 

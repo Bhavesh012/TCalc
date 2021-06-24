@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Telescope</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <span class="site-name">Telescope-Calculator</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#welcome-to-telescope-calculator-s-documentation">Contents:</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Telescope</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <div class="section" id="telescope">
+<span id="id1"></span><h1>Telescope<a class="headerlink" href="#telescope" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-telescope"></span><p>Classes for handling telescope and eyepiece properties.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="telescope.eyepiece">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">telescope.</span></span><span class="sig-name descname"><span class="pre">eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#telescope.eyepiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a single eyepiece</p>
+<dl class="simple">
+<dt>Initialization Args:</dt><dd><p>flenght: focal length of the eyepiece in mm
+fov: field of view of the eyepiece in degrees. Defaults to 50 degrees.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="telescope.telescope">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">telescope.</span></span><span class="sig-name descname"><span class="pre">telescope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aperture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_eye_aperture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#telescope.telescope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a telescope</p>
+<dl class="simple">
+<dt>Initialization Args:</dt><dd><p>aperture: the size of the telescope opening in mm
+flenght: focal length of the telescope in mm
+user_eye_aperture: diameter of telescope user’s eye in mm. Default is 7 mm.
+user_age: age of the telescope user. Will be used to compute user_eye_aperture if none is specified.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="telescope.telescope.add_eyepiece">
+<span class="sig-name descname"><span class="pre">add_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">piece</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#telescope.telescope.add_eyepiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach an eyepiece to the telescope class</p>
+<p>The telescope class can have multiple eyepieces associated
+with it, this method allows you to add a single eyepiece
+object to the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>piece</strong> (<em>eyepiece class instance</em>) – the eyepiece object to add</p></li>
+<li><p><strong>id</strong> (<em>string</em>) – the name to give the eyepiece - it will be identified by this name
+when selecting and analyzing eyepiece configurations. If unspecified, it will
+be set to a number.</p></li>
+<li><p><strong>select</strong> (<em>bool</em>) – if True (default) the added eyepiece will be selected by
+calling the select_eyepiece method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="telescope.telescope.list_eyepiece">
+<span class="sig-name descname"><span class="pre">list_eyepiece</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#telescope.telescope.list_eyepiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the eyepieces availabe to the telescope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Prints out a list of eyepiece objects and the</dt><dd><p>current eyepiece being used.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="telescope.telescope.say_configuration">
+<span class="sig-name descname"><span class="pre">say_configuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#telescope.telescope.say_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>List properties of the telescope eyepiece pair</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Writes out the properties of the telescope</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="telescope.telescope.select_eyepiece">
+<span class="sig-name descname"><span class="pre">select_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#telescope.telescope.select_eyepiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current eyepiece</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> – The id of the eyepiece to include. Default is
+None, which selects no eyepiece</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021, Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.7.3.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
