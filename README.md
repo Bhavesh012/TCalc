@@ -1,4 +1,6 @@
-![TCalc Logo](TCalc.png "TCalc Logo")
+<!-- ![TCalc Logo](TCalc.png|width=100) -->
+<img src="TCalc.png" width="300">
+
 # TCalc: Telescope-Calculator
 
 TCalc is a general toolkit designed for all the telescope owners and enthusiasts! This package has a set of functions that will allow you to calculate basic properties and performance of your telescope and eyepiece pair.
