@@ -20,7 +20,7 @@ def get_extensions():
 
 setup(
     name='TCalc',
-    version=get_property('__version__', TCalc),
+    version=get_property('__version__', 'TCalc'),
     description='Telescope Calculator! A tool for your telescope',
     # long_description=("README.md").read_text(),
     # long_description_content_type="text/markdown",
