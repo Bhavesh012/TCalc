@@ -32,7 +32,7 @@ class eyepiece:
     """Class representing a single eyepiece
     Args:
         f_e: focal length of the eyepiece in mm  
-        fov: field of view of the eyepiece in degrees. Defaults to 50 degrees.
+        fov_e: field of view of the eyepiece in degrees. Defaults to 50 degrees.
     """
     def __init__(self, f_e, fov_e=50):
 
@@ -175,8 +175,7 @@ class telescope:
     def select_eyepiece(self,id=None):
         """Set the current eyepiece
         Args:
-            id: The id of the eyepiece to include. Default is
-                None, which selects no eyepiece
+            id: The id of the eyepiece to include. Default is None, which selects no eyepiece
         Returns:
             None
         """
@@ -225,8 +224,7 @@ class telescope:
     def select_optic(self,id=None):
         """Set the current optical part
         Args:
-            id: The id of the optical part to include. Default is
-                None, which selects no optical part
+            id: The id of the optical part to include. Default is None, which selects no optical part
         Returns:
             None
         """
@@ -283,10 +281,8 @@ class telescope:
         Args:
             piece (eyepiece class instance): the eyepiece object to add
             id (string): the name to give the eyepiece - it will be identified by this name
-                when selecting and analyzing eyepiece configurations. If unspecified, it will 
-                be set to a number.
-            select (bool): if True (default) the added eyepiece will be selected by 
-                calling the select_eyepiece method.
+            when selecting and analyzing eyepiece configurations. If unspecified, it will be set to a number.
+            select (bool): if True (default) the added eyepiece will be selected by calling the select_eyepiece method.
         Returns:
             None
         """
@@ -317,10 +313,8 @@ class telescope:
         Args:
             optic (focal_reducer or barlow_lens class instance): the optical part object to add
             id (string): the name to give the part - it will be identified by this name
-                when selecting and analyzing optical configurations. If unspecified, it will 
-                be set to a number.
-            select (bool): if True (default) the added optical part will be selected by 
-                calling the select_eyepiece method.
+            when selecting and analyzing optical configurations. If unspecified, it will be set to a number.
+            select (bool): if True (default) the added optical part will be selected by calling the select_eyepiece method.
         Returns:
             None
         """
@@ -430,7 +424,13 @@ class telescope:
         print("")
 
     def show_resolving_power(self,seeing=2.5):
-
+        """Plots the resolution performance of the telescope for a specific seeing value
+        Args:
+            seeing (float): Seeing factor of sky. Default to 2.5
+        Returns:
+            A plot depicting variation of chromatic resolution or simply the resolution at different wavelengths
+            with respect to Dawes Limit and Limit due to seeing
+        """
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Wavelength [nm]', ylabel='Resolution [arcsec]',xlim=(380,750))
@@ -442,7 +442,14 @@ class telescope:
         plt.show()
 
     def show_magnification_limits(self):
-
+        """Plots the magnification limits for a telescope-eyepiece pair according to user's age
+        Args:
+            None
+        Returns:
+            Plot of maximum achievable magnification as a function of pupil's diameter
+            which varies according to user's age. Also, plots the magnification strength's
+            of the current selected eyepice.
+        """
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Eye Diameter [mm]', ylabel='Magnification Factor',xlim=(5,7.5),yscale='log')
@@ -454,7 +461,13 @@ class telescope:
         plt.show()
 
     def show_eyepiece_limits(self):
-
+        """Plots the eyepiece limits for a telescope-eyepiece pair according to user's age and pupil diameter
+        Args:
+            None
+        Returns:
+            Plot of minimum achievable magnification as a function of pupil's diameter
+            which varies according to user's age. Also, plots the power of the current selected eyepice.
+        """
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Eye Diameter [mm]', ylabel='Eyepiece Focal Length [mm]',xlim=(5,7.5))
