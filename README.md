@@ -36,14 +36,16 @@ pip install -e .
 ```
 
 ### Basic Usage
+
 ```python
-$ from TCalc.tcalc import telescope, eyepiece
-$ my_telescope = telescope(D_o = 203.2, f_o = 2032)
-$ eyepiece1 = eyepiece(f_e = 25, fov_e = 52)
-$ my_telescope.add_eyepiece(eyepiece1,select=True)
-$ my_telescope.say_configuration()
+>>> from TCalc.tcalc import telescope, eyepiece
+>>> my_telescope = telescope(D_o = 203.2, f_o = 2032)
+>>> eyepiece1 = eyepiece(f_e = 25, fov_e = 52)
+>>> my_telescope.add_eyepiece(eyepiece1,select=True)
+>>> my_telescope.say_configuration()
 ```
-```
+
+```python
 Output:
 
 The telescope has the following layout:
@@ -79,4 +81,5 @@ The faintest surface brightness that can be seen by this telescope is 12.50
 ```
 
 ### Tutorials
+
 ['Base Tutorial'](\docs\tutorials\TCalc_tutorial.ipynb)
