@@ -1,9 +1,10 @@
 sphinx                        
-sphinx-autopackagesummary     
-sphinx-mathjax-offline        
+sphinxcontrib-napoleon
 # sphinx-press-theme          
 # sphinx-rtd-theme            
 # insegel                     
 pydata-sphinx-theme           
-sphinxcontrib-inheritance     
-sphinxcontrib-napoleon        
+sphinxcontrib-inheritance 
+sphinx-mathjax-offline
+seed_intersphinx_mapping 
+sphinx-autopackagesummary
