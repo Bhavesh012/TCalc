@@ -1,5 +1,5 @@
-<!-- ![TCalc Logo](TCalc.png|width=100) -->
-<img src="TCalc.png" width="300">
+<!-- ![TCalc Logo](TCalc2.png|width=100) -->
+<img src="TCalc2.png" width="350">
 
 # TCalc: Telescope-Calculator
 
