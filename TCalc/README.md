@@ -20,13 +20,13 @@ Set of functions to calculate basic properties of your telescope
 |fov_scope | FOV of scope | fov_e/M|
 |afov | Apparent FOV||
 |fov | True FOV | afov/M = (ocular field stop dia/f_e)*57.3|
-|Lmag_limit | Limiting Mag of Telescope | 2 + 5*np.log(D_o)|
-|SB | Surface Brightness | 2*(D_EP**2) (in %)|
+|Lmag_limit | Limiting Mag of Telescope | 2 + 5*np.log10(D_o)|
+|SB | Surface Brightness | 2* (D_EP** 2) (in %)|
 |PPI | Power per inch | M/D_o(in)|
-|Barlow | 2*f_o||
-|Reducer | P_reducer*f_o||
+|Barlow || 2 * f_o |
+|Reducer || P_reducer * f_o|
 |f_e_min | The min. focal length of eyepiece you can use | f_o/f_e_min = M_max|
-|f_e_max | The max. focal length of eyepiece you can use | pupil diameter*f_R|
+|f_e_max | The max. focal length of eyepiece you can use | pupil diameter * f_R|
 
 Note - exit pupil of about 2-3mm (2.4mm to be precise) is the optimum point for maximizing the resolving power of the eye
 
