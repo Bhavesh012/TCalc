@@ -37,7 +37,6 @@ extensions = ["sphinx.ext.autodoc",
             "sphinx.ext.napoleon",
             "sphinx.ext.mathjax", 
             "sphinx-mathjax-offline",
-            "sphinx.ext.inheritance_diagram",
             'sphinx.ext.autosummary', 
             'sphinx_autopackagesummary',
             "seed_intersphinx_mapping"]
