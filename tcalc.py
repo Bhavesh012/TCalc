@@ -32,56 +32,56 @@ class eyepiece:
     """Class representing a single eyepiece
 
     Args:
-        flenght: focal length of the eyepiece in mm  
+        f_e: focal length of the eyepiece in mm  
         fov: field of view of the eyepiece in degrees. Defaults to 50 degrees.
     """
-    def __init__(self, flength, fov=50):
+    def __init__(self, f_e, fov_e=50):
 
-        if flength <= 0:
-            raise ValueError("flength must be larger than 0")
-        if fov <= 0:
+        if f_e <= 0:
+            raise ValueError("f_e must be larger than 0")
+        if fov_e <= 0:
             raise ValueError("fov must be larger than 0")
 
-        self.flength = flength
-        self.fov = fov
+        self.f_e = f_e
+        self.fov_e = fov_e
 
 class telescope:
     """Class representing a telescope
 
     Args:
-        aperture: the size of the telescope opening in mm
+        D_o: the size of the telescope opening in mm
         flenght: focal length of the telescope in mm
-        user_eye_aperture: diameter of telescope user's eye in mm. Default is 7 mm.
-        user_age: age of the telescope user. Will be used to compute user_eye_aperture if none is specified.
+        user_D_eye: diameter of telescope user's eye in mm. Default is 7 mm.
+        user_age: age of the telescope user. Will be used to compute user_D_eye if none is specified.
     """
     # TO DO: add user eye diameter stuff
 
-    def __init__(self, aperture, flength, user_eye_aperture=None, user_age=None):
+    def __init__(self, D_o, f_o, user_D_eye=None, user_age=None):
 
         # Check that inputs make sense then save them as class atributes
-        if aperture <= 0:
+        if D_o <= 0:
             raise ValueError("aperature must be larger than 0")
-        if flength <= 0:
-            raise ValueError("flength must be larger than 0")
+        if f_o <= 0:
+            raise ValueError("f_o must be larger than 0")
         
-        self.aperture = aperture
-        self.flength = flength
+        self.D_o = D_o
+        self.f_o = f_o
 
         # Some stuff about the user
-        if user_eye_aperture is None:
+        if user_D_eye is None:
             if user_age is None:
-                print("No user_age or user_eye_aperture specified, using defaults (25 year old eye)")
+                print("No user_age or user_D_eye specified, using defaults (25 year old eye)")
                 self.user_age = 25
-                self.user_eye_aperture = age_to_eye_diameter(self.user_age)
+                self.user_D_eye = age_to_eye_diameter(self.user_age)
             else:
                 if user_age <= 0:
                     raise ValueError("user_age must be larger than 0")
                 self.user_age = user_age
-                self.user_eye_aperture = age_to_eye_diameter(self.user_age)
+                self.user_D_eye = age_to_eye_diameter(self.user_age)
         else:
-            if user_eye_aperture <= 0:
+            if user_D_eye <= 0:
                 raise ValueError("user_eye_aperature must be larger than 0")
-            self.user_eye_aperture = user_eye_aperture
+            self.user_D_eye = user_D_eye
             if user_age is not None:
                 print("Specified user_age and user_eye_aperature. The user_eye_aperature will be used for calculations.")
             self.user_age = user_age
@@ -102,11 +102,11 @@ class telescope:
         self.current_eyepiece = None
 
         # Set properties that depend on eyepiece selection to NaNs
-        self.magnification = np.nan
+        self.M = np.nan
         self.compatible_eyepiece = False
         self.fov = np.nan
-        self.exit_pupil = np.nan
-        self.surface_brightness_sensitivity = np.nan
+        self.D_EP = np.nan
+        self.SB = np.nan
 
 
     def list_eyepiece(self):
@@ -124,7 +124,7 @@ class telescope:
         print("     -------------- -------------- --------------")
         names = self.eyepieces.keys()
         for name in names:
-            print("     {: <14} {: <14} {: <14} ".format("\'"+name+"\'", str(self.eyepieces[name].flength)+" mm", str(self.eyepieces[name].fov)+" degrees"))
+            print("     {: <14} {: <14} {: <14} ".format("\'"+name+"\'", str(self.eyepieces[name].f_e)+" mm", str(self.eyepieces[name].fov_e)+" degrees"))
         
         if self.current_eyepiece is None:
             print("\n   No eyepiece is selected\n")
@@ -148,11 +148,11 @@ class telescope:
             self.current_eyepiece_id = None
 
             # Reset eyepiece dependent quantities to NaN
-            self.magnification = np.nan
+            self.M = np.nan
             self.compatible_eyepiece = False
             self.fov = np.nan
-            self.exit_pupil = np.nan
-            self.surface_brightness_sensitivity = np.nan
+            self.D_EP = np.nan
+            self.SB = np.nan
 
             return
 
@@ -173,7 +173,7 @@ class telescope:
 
         # Update quantities dependent on eyepiece
         self._compute_magnification()
-        if self.min_eyepiece <= self.current_eyepiece.flength <= self.max_eyepiece:
+        if self.f_e_min <= self.current_eyepiece.f_e <= self.f_e_max:
             self.compatible_eyepiece = True
         else:
             self.compatible_eyepiece = False
@@ -233,14 +233,14 @@ class telescope:
         if user_age <= 0:
             raise ValueError("user_age must be larger than 0")
         self.user_age = user_age
-        self.user_eye_aperture = age_to_eye_diameter(self.user_age)
+        self.user_D_eye = age_to_eye_diameter(self.user_age)
 
         # Update limits
         self._compute_min_mag()
         self._compute_max_eye()
 
         # Update quantities dependent on eyepiece
-        if self.min_eyepiece <= self.current_eyepiece.flength <= self.max_eyepiece:
+        if self.f_e_min <= self.current_eyepiece.f_e <= self.f_e_max:
             self.compatible_eyepiece = True
         else:
             self.compatible_eyepiece = False
@@ -257,32 +257,32 @@ class telescope:
         """
 
         print("\n   The telescope has the following layout:")
-        print("      Aperture diameter: {} mm".format(self.aperture))
-        print("      Focal length: {} mm, corresponding to a focal ratio of {}".format(self.flength,self.focal_ratio))
+        print("      Aperture diameter: {} mm".format(self.D_o))
+        print("      Focal length: {} mm, corresponding to a focal ratio of {}".format(self.f_o,self.f_R))
         print("")
-        print("   In good atmospheric conditions, the resolution of the telescope (Dawes limit) is {:.1f} arcseconds".format(self.dawes_limit))
+        print("   In good atmospheric conditions, the resolution of the telescope (Dawes limit) is {:.1f} arcseconds".format(self.Dawes_lim))
         print("   By wavelength, the resolution is")
-        print("      {} nm (blue): {:.1f} arcsec".format(blue,self.blue_resolving_power))
-        print("      {} nm (green): {:.1f} arcsec".format(green,self.green_resolving_power))
-        print("      {} nm (red): {:.1f} arcsec".format(red,self.red_resolving_power))
+        print("      {} nm (blue): {:.1f} arcsec".format(blue,self.blue_P_R))
+        print("      {} nm (green): {:.1f} arcsec".format(green,self.green_P_R))
+        print("      {} nm (red): {:.1f} arcsec".format(red,self.red_P_R))
         print("")
 
-        age = eye_to_age(self.user_eye_aperture)
-        print("   The maximum possible magnification factor is {:.1f}".format(self.max_magnification))
-        print("   This means the minimum compatible eyepiece focal length is {:.1f} mm".format(self.min_eyepiece))
+        age = eye_to_age(self.user_D_eye)
+        print("   The maximum possible magnification factor is {:.1f}".format(self.M_max))
+        print("   This means the minimum compatible eyepiece focal length is {:.1f} mm".format(self.f_e_min))
         print("")
         print("   The minimum magnification factor and corresponding maximum eyepiece focal length depend on the diameter of the observer's eye.")
-        print("   For a telescope user with an eye diameter of {} mm (apropriate for an age around {} years):".format(self.user_eye_aperture,age))
-        print("      The minimum magnification factor is {:.1f}".format(self.min_magnification))
-        print("      This means the maximum compatible eyepiece focal length is {:.1f} mm".format(self.max_magnification))
+        print("   For a telescope user with an eye diameter of {} mm (apropriate for an age around {} years):".format(self.user_D_eye,age))
+        print("      The minimum magnification factor is {:.1f}".format(self.M_min))
+        print("      This means the maximum compatible eyepiece focal length is {:.1f} mm".format(self.M_max))
         print("")
-        print("   The faintest star that can be seen by this telescope is {:.1f} mag".format(self.magnitude_limit))
+        print("   The faintest star that can be seen by this telescope is {:.1f} mag".format(self.Lmag_limit))
 
         if self.current_eyepiece is not None:
             print("")
             print("   The currently selected eyepiece is '{}', which has the following layout:".format(self.current_eyepiece_id))
-            print("      Focal length: {} mm".format(self.current_eyepiece.flength))
-            print("      Field of view: {} degrees".format(self.current_eyepiece.fov))
+            print("      Focal length: {} mm".format(self.current_eyepiece.f_e))
+            print("      Field of view: {} degrees".format(self.current_eyepiece.fov_e))
             print("")
 
             if self.compatible_eyepiece:
@@ -290,11 +290,11 @@ class telescope:
             else:
                 compatible = 'IS NOT'
             print("   With this eyepiece:")
-            print("      The magnification factor is {:.1f}. This {} compatible with the telescope limits.".format(self.magnification,compatible))
+            print("      The magnification factor is {:.1f}. This {} compatible with the telescope limits.".format(self.M,compatible))
             print("      The true field of view is {:.0f} degrees".format(self.fov))
-            print("      The exit pupil diameter is {:.1f} mm".format(self.exit_pupil))
+            print("      The exit pupil diameter is {:.1f} mm".format(self.D_EP))
             print("")
-            print("   The faintest surface brightness that can be seen by this telescope is {:.2f}".format(self.surface_brightness_sensitivity))
+            print("   The faintest surface brightness that can be seen by this telescope is {:.2f}".format(self.SB))
         print("")
 
     def show_resolving_power(self,seeing=2.5):
@@ -302,8 +302,8 @@ class telescope:
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Wavelength [nm]', ylabel='Resolution [arcsec]',xlim=(380,750))
-        ax.plot(wavelengths_list,self.resolving_power,label='Chromatic Resolution')
-        ax.axhline(self.dawes_limit,color='C0',ls='--',label='Dawes limit')
+        ax.plot(wavelengths_list,self.P_R,label='Chromatic Resolution')
+        ax.axhline(self.Dawes_lim,color='C0',ls='--',label='Dawes limit')
         ax.axhline(seeing,color='.5',ls='--',label='Limit due to seeing')
         ax.legend()
 
@@ -314,9 +314,9 @@ class telescope:
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Eye Diameter [mm]', ylabel='Magnification Factor',xlim=(5,7.5),yscale='log')
-        ax.plot(eye_diameter_list,self.min_mag_by_age,ls='--',label='Minimum')
-        ax.axhline(self.max_magnification,color='C0',label='Maximum')
-        ax.axhline(self.magnification,color='k',label='Current Eyepiece')
+        ax.plot(eye_diameter_list,self.M_min_by_age,ls='--',label='Minimum')
+        ax.axhline(self.M_max,color='C0',label='Maximum')
+        ax.axhline(self.M,color='k',label='Current Eyepiece')
         ax.legend()
 
         plt.show()
@@ -326,9 +326,9 @@ class telescope:
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Eye Diameter [mm]', ylabel='Eyepiece Focal Length [mm]',xlim=(5,7.5))
-        ax.plot(eye_diameter_list,self.max_eye_by_age,ls='--',label='Maximum')
-        ax.axhline(self.min_eyepiece,color='C0',label='Minimum')
-        ax.axhline(self.current_eyepiece.flength,color='k',label='Current Eyepiece')
+        ax.plot(eye_diameter_list,self.f_e_max_by_age,ls='--',label='Maximum')
+        ax.axhline(self.f_e_min,color='C0',label='Minimum')
+        ax.axhline(self.current_eyepiece.f_e,color='k',label='Current Eyepiece')
         ax.legend()
 
         plt.show()
@@ -343,10 +343,10 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.focal_ratio
+            Updates the state of self.f_R
         """
 
-        self.focal_ratio = focal_ratio(self.flength,self.aperture)
+        self.f_R = focal_ratio(self.f_o,self.D_o)
 
     def _compute_dawes_limit(self):
         """Compute the Dawes limit of the telescope
@@ -354,10 +354,10 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.dawes_limit
+            Updates the state of self.Dawes_lim
         """
 
-        self.dawes_limit = dawes_lim(self.aperture)
+        self.Dawes_lim = dawes_lim(self.D_o)
 
     def _compute_resolving_power(self):
         """Compute the resolving power of the telescope vs wavelength
@@ -365,13 +365,13 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.dawes_limit
+            Updates the state of self.resolving_power, and self.[color]_resolving_power
         """
 
-        self.resolving_power = resolving_power(wavelengths_list,self.aperture)
-        self.blue_resolving_power = resolving_power(blue,self.aperture)
-        self.green_resolving_power = resolving_power(green,self.aperture)
-        self.red_resolving_power = resolving_power(red,self.aperture)
+        self.P_R = resolving_power(wavelengths_list,self.D_o)
+        self.blue_P_R = resolving_power(blue,self.D_o)
+        self.green_P_R = resolving_power(green,self.D_o)
+        self.red_P_R = resolving_power(red,self.D_o)
 
 
     def _compute_min_mag(self):
@@ -380,14 +380,14 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.min_magnification and self.min_mag_by_age
+            Updates the state of self.M_min and self.M_min_by_age
         """
 
-        self.min_magnification = Min_magnification(self.aperture,self.user_eye_aperture)
+        self.M_min = Min_magnification(self.D_o,self.user_D_eye)
         
-        self.min_mag_by_age = np.zeros(len(age_list))
+        self.M_min_by_age = np.zeros(len(age_list))
         for i in range(len(age_list)):
-            self.min_mag_by_age[i] = Min_magnification(self.aperture,age=age_list[i])
+            self.M_min_by_age[i] = Min_magnification(self.D_o,age=age_list[i])
 
     def _compute_max_mag(self):
         """Compute the maximum magnification of the telescope
@@ -395,10 +395,10 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.max_magnification
+            Updates the state of self.M_max
         """
 
-        self.max_magnification = Max_magnification(self.aperture)
+        self.M_max = Max_magnification(self.D_o)
 
     def _compute_min_eye(self):
         """Compute the minimum eyepiece focal length compatible with the telescope
@@ -406,10 +406,10 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.min_eyepiece
+            Updates the state of self.f_e_min
         """
 
-        self.min_eyepiece = Min_eyepiece(self.aperture,self.max_magnification)
+        self.f_e_min = Min_eyepiece(self.D_o,self.M_max)
 
     def _compute_max_eye(self):
         """Compute the maximum eyepiece focal length compatible with the telescope
@@ -417,14 +417,14 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.max_eyepiece and self.max_eye_by_age
+            Updates the state of self.f_e_max and self.f_e_max_by_age
         """
 
-        self.max_eyepiece = Max_eyepiece(self.focal_ratio,self.user_eye_aperture)
+        self.f_e_max = Max_eyepiece(self.f_R,self.user_D_eye)
         
-        self.max_eye_by_age = np.zeros(len(age_list))
+        self.f_e_max_by_age = np.zeros(len(age_list))
         for i in range(len(age_list)):
-            self.max_eye_by_age[i] = Max_eyepiece(self.focal_ratio,age=age_list[i])
+            self.f_e_max_by_age[i] = Max_eyepiece(self.f_R,age=age_list[i])
 
     def _compute_magnitude_limit(self):
         """Compute the magnitude limit of the telescope
@@ -432,10 +432,10 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.magnitude_limit
+            Updates the state of self.Lmag_limit
         """
 
-        self.magnitude_limit = Lmag_limit(self.aperture)
+        self.Lmag_limit = Lmag_limit(self.D_o)
 
     def _compute_magnification(self):
         """Compute the magnification for the current telescope-eyepiece combo
@@ -443,13 +443,13 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.magnification
+            Updates the state of self.M
         """
 
         if self.current_eyepiece is None:
             raise ValueError("No eyepiece selected, cannot compute magnification")
 
-        self.magnification = magnification(self.flength,self.current_eyepiece.flength)
+        self.M = magnification(self.f_o,self.current_eyepiece.f_e)
 
     def _compute_true_fov(self):
         """Compute the true field of view of the telescope/eyepiece combo
@@ -460,7 +460,10 @@ class telescope:
             Updates the state of self.fov
         """
 
-        self.fov = focal_ratio(self.magnification,self.current_eyepiece.fov)
+        if self.current_eyepiece is None:
+            raise ValueError("No eyepiece selected, cannot compute magnification")
+
+        self.fov = true_fov(self.M,self.current_eyepiece.fov_e)
 
     def _compute_exit_pupil(self):
         """Compute the exit pupil of the telescope/eyepiece combo
@@ -468,10 +471,13 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.exit_pupil
+            Updates the state of self.D_EP
         """
 
-        self.exit_pupil = exit_pupil(self.current_eyepiece.flength,self.focal_ratio)
+        if self.current_eyepiece is None:
+            raise ValueError("No eyepiece selected, cannot compute magnification")
+
+        self.D_EP = exit_pupil(self.current_eyepiece.f_e,self.f_R)
 
     def _compute_surface_brightness_sensitivity(self):
         """Compute the surface brightness limit of the telescope/eyepiece combo
@@ -479,7 +485,10 @@ class telescope:
         Args:
             None
         Returns:
-            Updates the state of self.exit_pupil
+            Updates the state of self.SB
         """
 
-        self.surface_brightness_sensitivity = surface_brightness(self.exit_pupil)
+        if self.current_eyepiece is None:
+            raise ValueError("No eyepiece selected, cannot compute magnification")
+
+        self.SB = surface_brightness(self.D_EP)
