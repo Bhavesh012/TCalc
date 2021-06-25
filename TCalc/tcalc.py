@@ -496,8 +496,6 @@ class telescope:
 
         self.f_R = focal_ratio(self.f_o,self.D_o)
         self.f_R_true = focal_ratio(self.f_o_true,self.D_o)
-        print("Focal Ratio:'{}'".format(self.f_R))
-        print("True Focal Ratio:'{}'".format(self.f_R_true))
 
     def _compute_dawes_limit(self):
         """Compute the Dawes limit of the telescope
