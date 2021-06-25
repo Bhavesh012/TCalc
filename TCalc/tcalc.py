@@ -12,7 +12,7 @@ matplotlib.rcParams.update({'xtick.top':True})
 matplotlib.rcParams.update({'ytick.right':True})
 matplotlib.rcParams.update({'legend.frameon':False})
 matplotlib.rcParams.update({'lines.dashed_pattern':[8,3]})
-matplotlib.rcParams.update({"figure.figsize": [20,3]})
+matplotlib.rcParams.update({"figure.figsize": [12,6]})
 
 from TCalc.functions import focal_ratio, dawes_lim, resolving_power
 from TCalc.functions import Min_magnification, Max_magnification, Min_eyepiece, Max_eyepiece
@@ -32,13 +32,8 @@ eye_diameter_list = np.array([age_to_eye_diameter(age) for age in age_list])
 class eyepiece:
     """Class representing a single eyepiece
     Args:
-<<<<<<< HEAD
-        f_e: focal length of the eyepiece in mm  
-        fov_e: field of view of the eyepiece in degrees. Defaults to 50 degrees.
-=======
         f_e: focal length of the eyepiece (mm) 
-        fov: field of view of the eyepiece (deg). Defaults to 50 degrees.
->>>>>>> f9ea78af266dbb730837921e51c42eac556b65d1
+        fov_e: field of view of the eyepiece (deg). Defaults to 50 degrees.
     """
     def __init__(self, f_e, fov_e=50):
 
@@ -502,7 +497,6 @@ class telescope:
         self.f_R = focal_ratio(self.f_o,self.D_o)
         self.f_R_true = focal_ratio(self.f_o_true,self.D_o)
         print("Focal Ratio:'{}'".format(self.f_R))
-        print('self.f_R_true')
         print("True Focal Ratio:'{}'".format(self.f_R_true))
 
     def _compute_dawes_limit(self):
