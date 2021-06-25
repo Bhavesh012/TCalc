@@ -1,6 +1,6 @@
 import numpy as np
 
-from age_eye import age_to_eye_diameter
+from TCalc.age_eye import age_to_eye_diameter
 
 # This first set of functions are dependent ONLY on the telescope
 # and don't require any information about the eyepiece

@@ -13,12 +13,12 @@ matplotlib.rcParams.update({'ytick.right':True})
 matplotlib.rcParams.update({'legend.frameon':False})
 matplotlib.rcParams.update({'lines.dashed_pattern':[8,3]})
 
-from functions import focal_ratio, dawes_lim, resolving_power
-from functions import Min_magnification, Max_magnification, Min_eyepiece, Max_eyepiece
-from functions import Lmag_limit
-from functions import magnification, true_fov, exit_pupil, surface_brightness
+from TCalc.functions import focal_ratio, dawes_lim, resolving_power
+from TCalc.functions import Min_magnification, Max_magnification, Min_eyepiece, Max_eyepiece
+from TCalc.functions import Lmag_limit
+from TCalc.functions import magnification, true_fov, exit_pupil, surface_brightness
 
-from age_eye import age_to_eye_diameter, eye_to_age
+from TCalc.age_eye import age_to_eye_diameter, eye_to_age
 
 blue = 400
 green = 550
