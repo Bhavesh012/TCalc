@@ -23,12 +23,14 @@ Docmentation is available [here.](https://tcalc.readthedocs.io/en/latest/?badge=
 
 TCalc is a cross-platform python package and works on almost every OS. There are two ways to install the package:
 
-#### Using `pip`:
+#### Using `pip`
+
 ```python
 pip install tcalc
 ```
 
-#### Using GitHub:
+#### Using GitHub
+
 ```python
 git clone https://github.com/Bhavesh012/TCalc.git
 cd TCalc
