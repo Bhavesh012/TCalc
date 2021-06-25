@@ -1,10 +1,9 @@
-sphinx                        
+sphinx==4.0.2                     
 sphinxcontrib-napoleon
 # sphinx-press-theme          
 # sphinx-rtd-theme            
 # insegel                     
 pydata-sphinx-theme           
-sphinxcontrib-inheritance 
-sphinx-mathjax-offline
-seed_intersphinx_mapping 
-sphinx-autopackagesummary
+sphinxcontrib-inheritance==0.9.0
+sphinx-mathjax-offline==0.0.1
+seed_intersphinx_mapping==0.5.0
