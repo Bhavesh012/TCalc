@@ -24,7 +24,6 @@
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -173,53 +172,89 @@
 <span id="id1"></span><h1>Tcalc<a class="headerlink" href="#tcalc" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-tcalc"></span><p>Classes for handling telescope and eyepiece properties.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="tcalc.barlow_lens">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">barlow_lens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">barlow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.barlow_lens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a single Barlow lense
+:param barlow: the Barlow factor, default is 2
+:type barlow: float greater than 1</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="tcalc.eyepiece">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.eyepiece" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class representing a single eyepiece</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>flenght</strong> – focal length of the eyepiece in mm</p></li>
-<li><p><strong>fov</strong> – field of view of the eyepiece in degrees. Defaults to 50 degrees.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fov_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.eyepiece" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a single eyepiece
+:param f_e: focal length of the eyepiece in mm
+:param fov: field of view of the eyepiece in degrees. Defaults to 50 degrees.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tcalc.focal_reducer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">focal_reducer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P_reducer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.focal_reducer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a single focal reducer
+:param P_reducer: the power of the focal reducer
+:type P_reducer: float between 0 and 1</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="tcalc.telescope">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">telescope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aperture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_eye_aperture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class representing a telescope</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>aperture</strong> – the size of the telescope opening in mm</p></li>
-<li><p><strong>flenght</strong> – focal length of the telescope in mm</p></li>
-<li><p><strong>user_eye_aperture</strong> – diameter of telescope user’s eye in mm. Default is 7 mm.</p></li>
-<li><p><strong>user_age</strong> – age of the telescope user. Will be used to compute user_eye_aperture if none is specified.</p></li>
-</ul>
-</dd>
-</dl>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">telescope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_D_eye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class representing a telescope
+:param D_o: the size of the telescope opening in mm
+:param flenght: focal length of the telescope in mm
+:param user_D_eye: diameter of telescope user’s eye in mm. Default is 7 mm.
+:param user_age: age of the telescope user. Will be used to compute user_D_eye if none is specified.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tcalc.telescope.add_eyepiece">
 <span class="sig-name descname"><span class="pre">add_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">piece</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.add_eyepiece" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attach an eyepiece to the telescope class</p>
-<p>The telescope class can have multiple eyepieces associated
+<dd><p>Attach an eyepiece to the telescope class
+The telescope class can have multiple eyepieces associated
 with it, this method allows you to add a single eyepiece
-object to the list.</p>
+object to the list.
+:param piece: the eyepiece object to add
+:type piece: eyepiece class instance
+:param id: the name to give the eyepiece - it will be identified by this name
+:type id: string
+:param when selecting and analyzing eyepiece configurations. If unspecified:
+:param it will be set to a number.:
+:param select: if True (default) the added eyepiece will be selected by calling the select_eyepiece method.
+:type select: bool</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>piece</strong> (<em>eyepiece class instance</em>) – the eyepiece object to add</p></li>
-<li><p><strong>id</strong> (<em>string</em>) – the name to give the eyepiece - it will be identified by this name
-when selecting and analyzing eyepiece configurations. If unspecified, it will
-be set to a number.</p></li>
-<li><p><strong>select</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if True (default) the added eyepiece will be selected by
-calling the select_eyepiece method.</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tcalc.telescope.add_optic">
+<span class="sig-name descname"><span class="pre">add_optic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.add_optic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach an optical part to the telescope class
+The telescope class can have multiple optical parts (focal reducers and Barlow lenses)
+associated with it, this method allows you to add a single part to the list.
+:param optic: the optical part object to add
+:type optic: focal_reducer or barlow_lens class instance
+:param id: the name to give the part - it will be identified by this name
+:type id: string
+:param when selecting and analyzing optical configurations. If unspecified:
+:param it will be set to a number.:
+:param select: if True (default) the added optical part will be selected by calling the select_eyepiece method.
+:type select: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tcalc.telescope.change_user_age">
+<span class="sig-name descname"><span class="pre">change_user_age</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_age</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.change_user_age" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the age of the user and the corresponding eye size
+:param new_age: the age of the user
+:type new_age: float &gt; 0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -227,13 +262,11 @@ calling the select_eyepiece method.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="tcalc.telescope.list_eyepiece">
 <span class="sig-name descname"><span class="pre">list_eyepiece</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.list_eyepiece" title="Permalink to this definition">¶</a></dt>
-<dd><p>List the eyepieces availabe to the telescope</p>
+<dd><p>List the eyepieces and other optics availabe to the telescope
+:param None:</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
 <dt>Prints out a list of eyepiece objects and the</dt><dd><p>current eyepiece being used.</p>
 </dd>
 </dl>
@@ -245,13 +278,11 @@ calling the select_eyepiece method.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="tcalc.telescope.say_configuration">
 <span class="sig-name descname"><span class="pre">say_configuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.say_configuration" title="Permalink to this definition">¶</a></dt>
-<dd><p>List properties of the telescope eyepiece pair</p>
+<dd><p>List properties of the telescope eyepiece pair
+:param None:</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Writes out the properties of the telescope</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Writes out the properties of the telescope</p>
 </dd>
 </dl>
 </dd></dl>
@@ -259,14 +290,64 @@ calling the select_eyepiece method.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="tcalc.telescope.select_eyepiece">
 <span class="sig-name descname"><span class="pre">select_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.select_eyepiece" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the current eyepiece</p>
+<dd><p>Set the current eyepiece
+:param id: The id of the eyepiece to include. Default is None, which selects no eyepiece</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>id</strong> – The id of the eyepiece to include. Default is
-None, which selects no eyepiece</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tcalc.telescope.select_optic">
+<span class="sig-name descname"><span class="pre">select_optic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.select_optic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current optical part
+:param id: The id of the optical part to include. Default is None, which selects no optical part</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tcalc.telescope.show_eyepiece_limits">
+<span class="sig-name descname"><span class="pre">show_eyepiece_limits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.show_eyepiece_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the eyepiece limits for a telescope-eyepiece pair according to user’s age and pupil diameter
+:param None:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Plot of minimum achievable magnification as a function of pupil’s diameter
+which varies according to user’s age. Also, plots the power of the current selected eyepice.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tcalc.telescope.show_magnification_limits">
+<span class="sig-name descname"><span class="pre">show_magnification_limits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.show_magnification_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the magnification limits for a telescope-eyepiece pair according to user’s age
+:param None:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Plot of maximum achievable magnification as a function of pupil’s diameter
+which varies according to user’s age. Also, plots the magnification strength’s
+of the current selected eyepice.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tcalc.telescope.show_resolving_power">
+<span class="sig-name descname"><span class="pre">show_resolving_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seeing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope.show_resolving_power" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the resolution performance of the telescope for a specific seeing value
+:param seeing: Seeing factor of sky. Default to 2.5
+:type seeing: float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A plot depicting variation of chromatic resolution or simply the resolution at different wavelengths
+with respect to Dawes Limit and Limit due to seeing</p>
 </dd>
 </dl>
 </dd></dl>

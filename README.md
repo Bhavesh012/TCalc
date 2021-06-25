@@ -34,7 +34,7 @@ pip install -e .
 
 ### Basic Usage
 ```python
-from tcalc import telescope, eyepiece
+from TCalc.tcalc import telescope, eyepiece
 ```
 
 ### Tutorials

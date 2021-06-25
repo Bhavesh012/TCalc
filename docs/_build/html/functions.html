@@ -24,7 +24,6 @@
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -191,19 +190,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.Max_eyepiece">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Max_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_eye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Max_eyepiece" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calulates the maximum focal length of eyepiece you can use on the telescope</p>
+<dd><p>Calulates the maximum focal length of eyepiece you can use on the telescope
+:param D_eye: Diameter of Eyepiece (mm); default is 7 mm
+:type D_eye: float
+:param f_R: Focal Ratio/f-number of telescope
+:type f_R: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>D_eye</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Diameter of Eyepiece (mm); default is 7 mm</p></li>
-<li><p><strong>f_R</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Focal Ratio/f-number of telescope</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The maximum focal length of eyepiece (:math: <cite>f_{e-max}</cite>) you can use with your telescope</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The maximum focal length of eyepiece (:math: <cite>f_{e-max}</cite>) you can use with your telescope</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -211,16 +208,15 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.Max_magnification">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Max_magnification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Max_magnification" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calulates the maximum usable magnification of the telescope</p>
+<dd><p>Calulates the maximum usable magnification of the telescope
+:param D_o: Diameter of Objective/Aperture (mm)
+:type D_o: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>D_o</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Diameter of Objective/Aperture (mm)</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Maximum Usable Magnification (:math: <cite>M_max</cite>) of the telescope</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Maximum Usable Magnification (:math: <cite>M_max</cite>) of the telescope</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -232,19 +228,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.Min_eyepiece">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Min_eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Min_eyepiece" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calulates the minimum focal length of eyepiece you can use on the telescope</p>
+<dd><p>Calulates the minimum focal length of eyepiece you can use on the telescope
+:param f_o: Focal length of Objective/Aperture (mm)
+:type f_o: float
+:param M_max: Maximum usable magnification
+:type M_max: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_o</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Focal length of Objective/Aperture (mm)</p></li>
-<li><p><strong>M_max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Maximum usable magnification</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The minimum focal length of eyepiece (:math: <cite>f_{e-min}</cite>) you can use with your telescope</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The minimum focal length of eyepiece (:math: <cite>f_{e-min}</cite>) you can use with your telescope</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -252,19 +246,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.Min_magnification">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">Min_magnification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_eye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.Min_magnification" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calulates the minimum usable magnification of the telescope</p>
+<dd><p>Calulates the minimum usable magnification of the telescope
+:param D_o: Diameter of Objective/Aperture (mm)
+:type D_o: float
+:param D_eye: Diameter of Eyepiece (mm); default is 7 mm
+:type D_eye: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>D_o</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Diameter of Objective/Aperture (mm)</p></li>
-<li><p><strong>D_eye</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Diameter of Eyepiece (mm); default is 7 mm</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Minimum Usable Magnification (:math: <cite>M_min</cite>) of the telescope</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Minimum Usable Magnification (:math: <cite>M_min</cite>) of the telescope</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -293,19 +285,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.exit_pupil">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">exit_pupil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_R</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.exit_pupil" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calulates the Exit Pupil of the telescope &amp; eyepiece pair</p>
+<dd><p>Calulates the Exit Pupil of the telescope &amp; eyepiece pair
+:param f_e: Focal Length of eyepiece (mm)
+:type f_e: float
+:param f_R: Focal Ratio of telescope
+:type f_R: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_e</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Focal Length of eyepiece (mm)</p></li>
-<li><p><strong>f_R</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Focal Ratio of telescope</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Diameter of Exit Pupil(:math: <cite>D_EP</cite>) (mm)</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Diameter of Exit Pupil(:math: <cite>D_EP</cite>) (mm)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -317,19 +307,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.focal_ratio">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">focal_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.focal_ratio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the Focal Ratio for the telescope</p>
+<dd><p>Calculates the Focal Ratio for the telescope
+:param f_o: Focal Length of Objective/Aperture (mm)
+:type f_o: float
+:param D_o: Diameter of Objective/Aperture (mm)
+:type D_o: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_o</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Focal Length of Objective/Aperture (mm)</p></li>
-<li><p><strong>D_o</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Diameter of Objective/Aperture (mm)</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Focal Ratio/f-number (:math: <cite>f_R</cite>) of the telescope</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Focal Ratio/f-number (:math: <cite>f_R</cite>) of the telescope</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -337,19 +325,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.magnification">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">magnification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.magnification" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the Angular Magnification for the telescope</p>
+<dd><p>Calculates the Angular Magnification for the telescope
+:param f_o: Focal Length of Objective/Aperture (mm)
+:type f_o: float
+:param f_e: Focal Length of Eyepiece (mm)
+:type f_e: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_o</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Focal Length of Objective/Aperture (mm)</p></li>
-<li><p><strong>f_e</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Focal Length of Eyepiece (mm)</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Visual Magnification (M) of the telescope</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Visual Magnification (M) of the telescope</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -398,19 +384,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="functions.true_fov">
 <span class="sig-prename descclassname"><span class="pre">functions.</span></span><span class="sig-name descname"><span class="pre">true_fov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fov_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#functions.true_fov" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calulates the True Field of View (FOV) of the telescope &amp; eyepiece pair</p>
+<dd><p>Calulates the True Field of View (FOV) of the telescope &amp; eyepiece pair
+:param fov_e: FOV of eyepiece; default 50 deg
+:type fov_e: float
+:param M: Magnification of Telescope
+:type M: float</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fov_e</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – FOV of eyepiece; default 50 deg</p></li>
-<li><p><strong>M</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Magnification of Telescope</p></li>
-</ul>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True Field of View (deg)</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True Field of View (deg)</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
 </dd>
 </dl>
 </dd></dl>

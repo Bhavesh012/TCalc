@@ -3,16 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Telescope-Calculator's documentation!
+Welcome to TCalc's documentation!
 ================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
    
-   tcalc
-   functions
-   age_eye
+   README.md
+   api
 
 
 
