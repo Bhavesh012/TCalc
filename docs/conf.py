@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Telescope-Calculator'
+project = 'TCalc: Telescope-Calculator'
 copyright = '2021, Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton'
 author = 'Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton'
 master_doc='index'
