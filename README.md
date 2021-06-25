@@ -3,8 +3,7 @@
 TCalc is a general toolkit designed for all the telescope owners and enthusiasts! This package has a set of functions which will allow you to calculate the basic properties and performance of your telescope and eyepiece pair.
 
 [![PyPI version](https://badge.fury.io/py/TCalc.svg)](https://badge.fury.io/py/TCalc)
-[![Documentation Status](https://readthedocs.org/projects/telescope-calculator/badge/?version=latest)](https://telescope-calculator.readthedocs.io/en/latest/?badge=latest)
-[![Requirements Status](https://requires.io/github/Bhavesh012/TCalc/requirements.svg?branch=main)](https://requires.io/github/Bhavesh012/TCalc/requirements/?branch=main)
+[![Documentation Status](https://readthedocs.org/projects/tcalc/badge/?version=latest)](https://tcalc.readthedocs.io/en/latest/?badge=latest)[![Requirements Status](https://requires.io/github/Bhavesh012/TCalc/requirements.svg?branch=main)](https://requires.io/github/Bhavesh012/TCalc/requirements/?branch=main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 <!-- add badges from pypistats, travis.ci, coveralls.io -->
