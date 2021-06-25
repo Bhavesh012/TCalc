@@ -38,7 +38,6 @@ extensions = ["sphinx.ext.autodoc",
             "sphinx.ext.mathjax", 
             "sphinx-mathjax-offline",
             'sphinx.ext.autosummary', 
-            'sphinx_autopackagesummary',
             "seed_intersphinx_mapping"]
 
 autosummary_generate = True
