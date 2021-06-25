@@ -39,7 +39,8 @@ extensions = ["sphinx.ext.autodoc",
             "sphinx-mathjax-offline",
             'sphinx.ext.autosummary', 
             "seed_intersphinx_mapping",
-            "recommonmark"]
+            "recommonmark",
+            "nbsphinx"]
 
 autosummary_generate = True
 

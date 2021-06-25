@@ -31,10 +31,11 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Functions" href="functions.html" />
-    <link rel="prev" title="Welcome to Telescope-Calculator’s documentation!" href="index.html" />
+    <link rel="prev" title="API" href="api.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -66,21 +67,15 @@
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Tcalc
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="README.html">
+  TCalc: Telescope-Calculator
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="functions.html">
-  Functions
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="age_eye.html">
-  age_eye
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API
  </a>
 </li>
 
@@ -119,7 +114,24 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tcalc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="age_eye.html">
+   age_eye
+  </a>
+ </li>
+</ul>
+
   </div>
 </nav>
             </div>
@@ -183,8 +195,8 @@
 <dt class="sig sig-object py" id="tcalc.eyepiece">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">eyepiece</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fov_e</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.eyepiece" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class representing a single eyepiece
-:param f_e: focal length of the eyepiece in mm
-:param fov: field of view of the eyepiece in degrees. Defaults to 50 degrees.</p>
+:param f_e: focal length of the eyepiece (mm)
+:param fov_e: field of view of the eyepiece (deg). Defaults to 50 degrees.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -199,8 +211,8 @@
 <dt class="sig sig-object py" id="tcalc.telescope">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">tcalc.</span></span><span class="sig-name descname"><span class="pre">telescope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_D_eye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tcalc.telescope" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class representing a telescope
-:param D_o: the size of the telescope opening in mm
-:param flenght: focal length of the telescope in mm
+:param D_o: the size of the telescope opening (mm)
+:param f_o: focal length of the telescope (mm)
 :param user_D_eye: diameter of telescope user’s eye in mm. Default is 7 mm.
 :param user_age: age of the telescope user. Will be used to compute user_D_eye if none is specified.</p>
 <dl class="py method">
@@ -362,7 +374,7 @@ with respect to Dawes Limit and Limit due to seeing</p>
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Welcome to Telescope-Calculator’s documentation!</a>
+    <a class='left-prev' id="prev-link" href="api.html" title="previous page">API</a>
     <a class='right-next' id="next-link" href="functions.html" title="next page">Functions</a>
 
               </div>

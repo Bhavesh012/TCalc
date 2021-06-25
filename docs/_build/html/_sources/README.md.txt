@@ -1,6 +1,6 @@
 # TCalc: Telescope-Calculator
 
-TCalc is a general toolkit designed for all the telescope owners and enthusiasts! This package has a set of functions which will allow you to calculate the basic properties and performance of your telescope and eyepiece pair.
+TCalc is a general toolkit designed for all the telescope owners and enthusiasts! This package has a set of functions that will allow you to calculate basic properties and performance of your telescope and eyepiece pair.
 
 [![PyPI version](https://badge.fury.io/py/TCalc.svg)](https://badge.fury.io/py/TCalc)
 [![Documentation Status](https://readthedocs.org/projects/tcalc/badge/?version=latest)](https://tcalc.readthedocs.io/en/latest/?badge=latest)

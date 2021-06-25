@@ -34,7 +34,44 @@ pip install -e .
 
 ### Basic Usage
 ```python
-from TCalc.tcalc import telescope, eyepiece
+$ from TCalc.tcalc import telescope, eyepiece
+$ my_telescope = telescope(D_o = 203.2, f_o = 2032)
+$ eyepiece1 = eyepiece(f_e = 25, fov_e = 52)
+$ my_telescope.add_eyepiece(eyepiece1,select=True)
+$ my_telescope.say_configuration()
+```
+```
+   The telescope has the following layout:
+      Aperture diameter: 203.2 mm
+      Focal length: 2032 mm, corresponding to a focal ratio of 10.0
+
+   In good atmospheric conditions, the resolution of the telescope (Dawes limit) is 0.6 arcseconds
+   By wavelength, the resolution is
+      400 nm (blue): 0.5 arcsec
+      550 nm (green): 0.7 arcsec
+      700 nm (red): 0.9 arcsec
+
+   The maximum possible magnification factor is 406.4
+   This means the minimum compatible eyepiece focal length is 5.0 mm
+
+   The minimum magnification factor and corresponding maximum eyepiece focal length depend on the diameter of the observer's eye.
+   For a telescope user with an eye diameter of 7 mm (apropriate for an age around 25 years):
+      The minimum magnification factor is 29.0
+      This means the maximum compatible eyepiece focal length is 406.4 mm
+
+   The faintest star that can be seen by this telescope is 13.5 mag
+
+   The currently selected eyepiece is 'omni_25', which has the following layout:
+      Focal length: 25 mm
+      Field of view: 52 degrees
+
+   With this eyepiece:
+      The magnification factor is 81.3. This is compatible with the telescope limits.
+      The true field of view is 1 degrees
+      The exit pupil diameter is 2.5 mm
+
+   The faintest surface brightness that can be seen by this telescope is 12.50
 ```
 
 ### Tutorials
+['Base Tutorial'](\docs\tutorials\TCalc_tutorial.ipynb)
