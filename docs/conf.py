@@ -25,7 +25,7 @@ author = 'Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton'
 master_doc='index'
 
 # The full version, including alpha/beta/rc tags
-release = "1.0.0"
+release = "1.0.2"
 
 
 # -- General configuration ---------------------------------------------------
@@ -36,10 +36,10 @@ release = "1.0.0"
 extensions = ["sphinx.ext.autodoc",
             "sphinx.ext.napoleon",
             "sphinx.ext.mathjax", 
-            # "sphinx-mathjax-offline",
+            "sphinx-mathjax-offline",
             "sphinx.ext.inheritance_diagram",
             'sphinx.ext.autosummary', 
-#             'sphinx_autopackagesummary',
+            'sphinx_autopackagesummary',
             "seed_intersphinx_mapping"]
 
 autosummary_generate = True
