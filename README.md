@@ -79,4 +79,4 @@ The faintest surface brightness that can be seen by this telescope is 12.50
 ```
 
 ### Tutorials
-['Base Tutorial'](\docs\tutorials\TCalc_tutorial.ipynb)
+['Base Tutorial'](docs/tutorials/TCalc_tutorial.ipynb)
