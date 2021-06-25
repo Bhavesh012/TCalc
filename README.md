@@ -50,7 +50,7 @@ pip install -e .
 >>> my_telescope.say_configuration()
 ```
 
-```python
+```
 Output:
 
 The telescope has the following layout:
