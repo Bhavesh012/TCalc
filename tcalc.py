@@ -45,6 +45,35 @@ class eyepiece:
         self.f_e = f_e
         self.fov_e = fov_e
 
+class focal_reducer:
+    """Class representing a single focal reducer
+
+    Args:
+        P_reducer (float between 0 and 1): the power of the focal reducer
+    """
+    def __init__(self, P_reducer):
+
+        if P_reducer <= 0 or P_reducer > 1:
+            raise ValueError("P_reducer must be between 0 and 1")
+
+        self.P = P_reducer
+        self.optic_type = 'focal reducer'
+
+class barlow_lens:
+    """Class representing a single Barlow lense
+
+    Args:
+        barlow (float greater than 1): the Barlow factor, default is 2
+    """
+    def __init__(self, barlow=2):
+
+        if barlow < 1:
+            raise ValueError("barlow must be at least 1")
+
+        self.P = barlow
+        self.optic_type = 'Barlow lens'
+
+
 class telescope:
     """Class representing a telescope
 
@@ -54,7 +83,6 @@ class telescope:
         user_D_eye: diameter of telescope user's eye in mm. Default is 7 mm.
         user_age: age of the telescope user. Will be used to compute user_D_eye if none is specified.
     """
-    # TO DO: add user eye diameter stuff
 
     def __init__(self, D_o, f_o, user_D_eye=None, user_age=None):
 
@@ -66,6 +94,7 @@ class telescope:
         
         self.D_o = D_o
         self.f_o = f_o
+        self.f_o_true = f_o
 
         # Some stuff about the user
         if user_D_eye is None:
@@ -108,9 +137,13 @@ class telescope:
         self.D_EP = np.nan
         self.SB = np.nan
 
+        # Initialize optic information
+        self.optics = {}
+        self.current_optic_id = None
+        self.current_optic = None
 
     def list_eyepiece(self):
-        """List the eyepieces availabe to the telescope
+        """List the eyepieces and other optics availabe to the telescope
 
         Args:
             None
@@ -130,6 +163,18 @@ class telescope:
             print("\n   No eyepiece is selected\n")
         else:
             print("\n   The currently selected eyepiece is '{}'\n".format(self.current_eyepiece_id))
+
+        print("\n   Additional optical parts available:")
+        print("     Name           Type           Power")
+        print("     -------------- -------------- --------------")
+        names = self.optics.keys()
+        for name in names:
+            print("     {: <14} {: <14} {: <14}".format("\'"+name+"\'", self.optics[name].optic_type, self.optics[name].P))
+        
+        if self.current_optic is None:
+            print("\n   No optical part is selected\n")
+        else:
+            print("\n   The currently selected optical part is '{}'\n".format(self.current_optic_id))
 
 
     def select_eyepiece(self,id=None):
@@ -183,6 +228,60 @@ class telescope:
         self._compute_exit_pupil()
         self._compute_surface_brightness_sensitivity()
 
+    def select_optic(self,id=None):
+        """Set the current optical part
+
+        Args:
+            id: The id of the optical part to include. Default is
+                None, which selects no optical part
+        Returns:
+            None
+        """
+
+        # If the ID is None, we'll get rid of the eyepiece
+        if id is None:
+            self.current_optic = None
+            self.current_optic_id = None
+            
+            # Update f_o 
+            self.f_o = self.f_o_true
+
+        # Check that id is a valid input
+        else:
+            if ~isinstance(id,str):
+                try:
+                    id = str(id)
+                except:
+                    raise ValueError("id must be castable to type 'str'")
+
+            # Check that id is in the optics available
+            if id not in self.optics.keys():
+                raise ValueError("id does not correspond to an optical part. Try self.list_eyepiece.")
+
+            # Update optic selection
+            self.current_optic_id = id
+            self.current_optic = self.optics[id]
+
+            # Update f_o
+            self.f_o = self.f_o_true * self.current_optic.P
+        
+        # Update other quantities
+        self._compute_focal_ratio()
+        self._compute_min_eye()
+        self._compute_max_eye()
+
+        if self.current_eyepiece is not None:
+            self._compute_magnification()
+            self._compute_true_fov()
+            self._compute_exit_pupil()
+            self._compute_surface_brightness_sensitivity()
+
+            if self.f_e_min <= self.current_eyepiece.f_e <= self.f_e_max:
+                self.compatible_eyepiece = True
+            else:
+                self.compatible_eyepiece = False
+                print("Note: The magnification produced by this eyepiece is not compatible with the telescope.")
+
     def add_eyepiece(self, piece, id=None, select=True):
         """Attach an eyepiece to the telescope class
 
@@ -220,6 +319,43 @@ class telescope:
         if select:
             self.select_eyepiece(id)
 
+    def add_optic(self, optic, id=None, select=True):
+        """Attach an optical part to the telescope class
+
+        The telescope class can have multiple optical parts (focal reducers and Barlow lenses) 
+        associated with it, this method allows you to add a single part to the list.
+
+        Args:
+            optic (focal_reducer or barlow_lens class instance): the optical part object to add
+            id (string): the name to give the part - it will be identified by this name
+                when selecting and analyzing optical configurations. If unspecified, it will 
+                be set to a number.
+            select (bool): if True (default) the added optical part will be selected by 
+                calling the select_eyepiece method.
+        Returns:
+            None
+        """
+
+        # If no name is given for optic, just give it the index number as a name
+        if id is None:
+            id = str(len(self.optics))
+        # Check that inputs are formatted correctly
+        elif ~isinstance(id,str):
+            try:
+                id = str(id)
+            except:
+                raise ValueError("id must be castable to type 'str'")
+        if not isinstance(optic,barlow_lens):
+            if not isinstance(optic,focal_reducer):
+                raise ValueError("optic must be an instance of barlow_lens or focal_reducer class")
+
+        # Add eyepiece to list
+        self.optics[id] = optic
+
+        # If select==True, we'll make the new eyepiece the current eyepiece
+        if select:
+            self.select_optic(id)
+
     def change_user_age(self,new_age):
         """Update the age of the user and the corresponding eye size
 
@@ -230,9 +366,9 @@ class telescope:
         """
 
         # Some stuff about the user
-        if user_age <= 0:
+        if new_age <= 0:
             raise ValueError("user_age must be larger than 0")
-        self.user_age = user_age
+        self.user_age = new_age
         self.user_D_eye = age_to_eye_diameter(self.user_age)
 
         # Update limits
@@ -240,11 +376,12 @@ class telescope:
         self._compute_max_eye()
 
         # Update quantities dependent on eyepiece
-        if self.f_e_min <= self.current_eyepiece.f_e <= self.f_e_max:
-            self.compatible_eyepiece = True
-        else:
-            self.compatible_eyepiece = False
-            print("Note: The magnification of the current eyepiece is not compatible.")
+        if self.current_eyepiece is not None:
+            if self.f_e_min <= self.current_eyepiece.f_e <= self.f_e_max:
+                self.compatible_eyepiece = True
+            else:
+                self.compatible_eyepiece = False
+                print("Note: The magnification of the current eyepiece is not compatible.")
 
 
     def say_configuration(self):
@@ -258,7 +395,15 @@ class telescope:
 
         print("\n   The telescope has the following layout:")
         print("      Aperture diameter: {} mm".format(self.D_o))
-        print("      Focal length: {} mm, corresponding to a focal ratio of {}".format(self.f_o,self.f_R))
+        print("      Focal length: {} mm, corresponding to a focal ratio of {}".format(self.f_o_true,self.f_R_true))
+        if self.current_optic is not None:
+            if self.current_optic.optic_type == 'Barlow lens':
+                action = 'increases'
+            else:
+                action = 'decreases'
+            print("   '{}', a {}, has been added to the optical path. This {} the focal length by {}".format(self.current_optic_id,self.current_optic.optic_type,action,self.current_optic.P))
+            print("   This results in")
+            print("      Focal length: {} mm, corresponding to a focal ratio of {}".format(self.f_o,self.f_R))
         print("")
         print("   In good atmospheric conditions, the resolution of the telescope (Dawes limit) is {:.1f} arcseconds".format(self.Dawes_lim))
         print("   By wavelength, the resolution is")
@@ -347,6 +492,7 @@ class telescope:
         """
 
         self.f_R = focal_ratio(self.f_o,self.D_o)
+        self.f_R_true = focal_ratio(self.f_o_true,self.D_o)
 
     def _compute_dawes_limit(self):
         """Compute the Dawes limit of the telescope
@@ -409,7 +555,7 @@ class telescope:
             Updates the state of self.f_e_min
         """
 
-        self.f_e_min = Min_eyepiece(self.D_o,self.M_max)
+        self.f_e_min = Min_eyepiece(self.f_o,self.M_max)
 
     def _compute_max_eye(self):
         """Compute the maximum eyepiece focal length compatible with the telescope
