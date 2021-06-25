@@ -12,6 +12,7 @@ matplotlib.rcParams.update({'xtick.top':True})
 matplotlib.rcParams.update({'ytick.right':True})
 matplotlib.rcParams.update({'legend.frameon':False})
 matplotlib.rcParams.update({'lines.dashed_pattern':[8,3]})
+matplotlib.rcParams.update({"figure.figsize": [20,3]})
 
 from TCalc.functions import focal_ratio, dawes_lim, resolving_power
 from TCalc.functions import Min_magnification, Max_magnification, Min_eyepiece, Max_eyepiece
@@ -31,8 +32,13 @@ eye_diameter_list = np.array([age_to_eye_diameter(age) for age in age_list])
 class eyepiece:
     """Class representing a single eyepiece
     Args:
+<<<<<<< HEAD
         f_e: focal length of the eyepiece in mm  
         fov_e: field of view of the eyepiece in degrees. Defaults to 50 degrees.
+=======
+        f_e: focal length of the eyepiece (mm) 
+        fov: field of view of the eyepiece (deg). Defaults to 50 degrees.
+>>>>>>> f9ea78af266dbb730837921e51c42eac556b65d1
     """
     def __init__(self, f_e, fov_e=50):
 
@@ -74,8 +80,8 @@ class barlow_lens:
 class telescope:
     """Class representing a telescope
     Args:
-        D_o: the size of the telescope opening in mm
-        flenght: focal length of the telescope in mm
+        D_o: the size of the telescope opening (mm)
+        f_o: focal length of the telescope (mm)
         user_D_eye: diameter of telescope user's eye in mm. Default is 7 mm.
         user_age: age of the telescope user. Will be used to compute user_D_eye if none is specified.
     """
@@ -434,6 +440,7 @@ class telescope:
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Wavelength [nm]', ylabel='Resolution [arcsec]',xlim=(380,750))
+        ax.title.set_text('Resolution performance of the telescope-eyepiece pair')
         ax.plot(wavelengths_list,self.P_R,label='Chromatic Resolution')
         ax.axhline(self.Dawes_lim,color='C0',ls='--',label='Dawes limit')
         ax.axhline(seeing,color='.5',ls='--',label='Limit due to seeing')
@@ -453,6 +460,7 @@ class telescope:
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Eye Diameter [mm]', ylabel='Magnification Factor',xlim=(5,7.5),yscale='log')
+        ax.title.set_text('Magnification Limits of the telescope-eyepiece pair')
         ax.plot(eye_diameter_list,self.M_min_by_age,ls='--',label='Minimum')
         ax.axhline(self.M_max,color='C0',label='Maximum')
         ax.axhline(self.M,color='k',label='Current Eyepiece')
@@ -471,6 +479,7 @@ class telescope:
         fig,ax = plt.subplots()
 
         ax.set(xlabel='Eye Diameter [mm]', ylabel='Eyepiece Focal Length [mm]',xlim=(5,7.5))
+        ax.title.set_text('Eyepiece Limits of the telescope-eyepiece pair')
         ax.plot(eye_diameter_list,self.f_e_max_by_age,ls='--',label='Maximum')
         ax.axhline(self.f_e_min,color='C0',label='Minimum')
         ax.axhline(self.current_eyepiece.f_e,color='k',label='Current Eyepiece')
@@ -492,6 +501,9 @@ class telescope:
 
         self.f_R = focal_ratio(self.f_o,self.D_o)
         self.f_R_true = focal_ratio(self.f_o_true,self.D_o)
+        print("Focal Ratio:'{}'".format(self.f_R))
+        print('self.f_R_true')
+        print("True Focal Ratio:'{}'".format(self.f_R_true))
 
     def _compute_dawes_limit(self):
         """Compute the Dawes limit of the telescope
