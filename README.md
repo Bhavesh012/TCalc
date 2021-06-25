@@ -10,6 +10,9 @@ TCalc is a general toolkit designed for all the telescope owners and enthusiasts
 
 <!-- add badges from pypistats, travis.ci, coveralls.io -->
 
+TCalc has taken birth from the project task of Code/Astro Workshop 2021 hosted by Grad students of Caltech. The authors of this project are Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai and Dylon Benton. 
+The package aims to save time and money for all the telescope owners and enthusiasts by telling them the overall configuration of their instrument and suggesting them optimal accessories for their telescope.
+
 ## Documentation
 
 Docmentation is available [here.](https://tcalc.readthedocs.io/en/latest/?badge=latest) <!-- (http://radvel.readthedocs.io/) -->
