@@ -118,7 +118,7 @@ def Lmag_limit(D_o):
     Returns:
         float: Limiting Magnitude (LM) of telescope 
     """
-    return 2 + 5*np.log(D_o)
+    return 2 + 5*np.log10(D_o)
 
 # These next functions depend on the properties of the telescope
 # and the eyepiece, and no other information

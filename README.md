@@ -19,7 +19,7 @@ Set of functions to calculate basic properties of your telescope
 |fov_scope | FOV of scope | fov_e/M|
 |afov | Apparent FOV||
 |fov | True FOV | afov/M = (ocular field stop dia/f_e)*57.3|
-|Lmag_limit | Limiting Mag of Telescope | 2 + 5*np.log(D_o)|
+|Lmag_limit | Limiting Mag of Telescope | 2 + 5*np.log10(D_o)|
 |SB | Surface Brightness | 2*(D_EP**2) (in %)|
 |PPI | Power per inch | M/D_o(in)|
 |Barlow | 2*f_o||
