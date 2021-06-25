@@ -220,6 +220,33 @@ class telescope:
         if select:
             self.select_eyepiece(id)
 
+    def change_user_age(self,new_age):
+        """Update the age of the user and the corresponding eye size
+
+        Args:
+            new_age (float > 0): the age of the user
+        Returns:
+            None
+        """
+
+        # Some stuff about the user
+        if user_age <= 0:
+            raise ValueError("user_age must be larger than 0")
+        self.user_age = user_age
+        self.user_eye_aperture = age_to_eye_diameter(self.user_age)
+
+        # Update limits
+        self._compute_min_mag()
+        self._compute_max_eye()
+
+        # Update quantities dependent on eyepiece
+        if self.min_eyepiece <= self.current_eyepiece.flength <= self.max_eyepiece:
+            self.compatible_eyepiece = True
+        else:
+            self.compatible_eyepiece = False
+            print("Note: The magnification of the current eyepiece is not compatible.")
+
+
     def say_configuration(self):
         """List properties of the telescope eyepiece pair
 
