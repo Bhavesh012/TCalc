@@ -1,8 +1,8 @@
 import numpy as np
 
-from tcalc import barlow_lens, eyepiece, focal_reducer, telescope
-from tcalc import age_list, eye_diameter_list, blue, green, red, wavelengths_list
-from age_eye import age_to_eye_diameter, eye_to_age
+from TCalc.tcalc import barlow_lens, eyepiece, focal_reducer, telescope
+from TCalc.tcalc import age_list, eye_diameter_list, blue, green, red, wavelengths_list
+from TCalc.age_eye import age_to_eye_diameter, eye_to_age
 
 def test_eyepiece_flength_violation():
     """Test invalid inputs for eyepiece flength"""
