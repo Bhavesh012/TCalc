@@ -27,7 +27,7 @@ pip install tcalc
 #### Using GitHub:
 ```python
 git clone https://github.com/Bhavesh012/TCalc.git
-cd tcalc
+cd TCalc
 pip install -e .
 ```
 
