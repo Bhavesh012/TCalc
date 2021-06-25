@@ -1,5 +1,4 @@
 import numpy as np
-import astropy.units as u 
 
 from age_eye import age_to_eye_diameter
 
