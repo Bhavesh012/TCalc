@@ -17,7 +17,7 @@ With TCalc, we will be aiming to put this to an end! TCalc package provides the 
 TCalc is written in Python and is compatible with every OS. It even works on phones too. TCalc package was pursued as a part of [Code/Astro Workshop 2021](https://semaphorep.github.io/codeastro/) by group 9. The authors of the package are: 
 |Member|Role|
 |--------|-------|
-|Bhavesh Rajpoot|Publishing, Documentation|
+|Bhavesh Rajpoot|Publishing, Documentation, Code Development|
 |Ryan Keenan|Code Development|
 |Binod Bhattarai|Tester|
 |Dylon Benton.|Tester|
