@@ -11,7 +11,7 @@ Welcome to TCalc's documentation!
    :caption: Contents:
    
    README.md
-   tutorials
+   tutorial
    api
 
 
