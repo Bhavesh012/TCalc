@@ -15,12 +15,10 @@ TCalc is built on the motive to spread awareness about telescopes and how to opt
 With TCalc, we will be aiming to put this to an end! TCalc package provides the functionality to estimate 95% of the information about their telescope and it's with just three parameters, aperture and focal length of telescope and eyepiece. With this, the package will output all the information like maximum usable magnification, smallest eyepiece which you can use and many more things such as focal-ratio, limiting magnitude, resolution power, etc. In TCalc, you can even create profiles of your telescope and eyepieces to simulate them in different ways. For advanced users, the package provides plots of resolution performance, eyepiece statistics for more detailed planning of their observations.
 
 TCalc is written in Python and is compatible with every OS. It even works on phones too. TCalc package was pursued as a part of [Code/Astro Workshop 2021](https://semaphorep.github.io/codeastro/) by group 9. The authors of the package are: 
-|Member|Role|
-|--------|-------|
-|Bhavesh Rajpoot|Publishing, Documentation, Code Development|
-|Ryan Keenan|Code Development|
-|Binod Bhattarai|Tester|
-|Dylon Benton.|Tester|
+
+
+|Members|Bhavesh Rajpoot|Ryan Keenan|Binod Bhattarai|Dylon Benton|
+|-----|-----|----|----|-----|
 
 ## Documentation
 
