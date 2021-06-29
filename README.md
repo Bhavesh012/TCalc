@@ -8,6 +8,7 @@
 [![Requirements Status](https://requires.io/github/Bhavesh012/TCalc/requirements.svg?branch=main)](https://requires.io/github/Bhavesh012/TCalc/requirements/?branch=main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Python application](https://github.com/Bhavesh012/TCalc/actions/workflows/python-app.yml/badge.svg)](https://github.com/Bhavesh012/TCalc/actions/workflows/python-app.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5035311.svg)](https://doi.org/10.5281/zenodo.5035311)
 <!-- add badges from pypistats, travis.ci, coveralls.io -->
 
 TCalc is built on the motive to spread awareness about telescopes and how to optimally use them in order to save time, money and sanity! Around 70% of amateur or rising astronomers and telescope owners waste 65% of their savings on buying the wrong or incompatible stuff for their telescope. 90% of them deals with high-level of frustration when trying their eyepieces or barlows.
