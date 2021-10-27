@@ -1,0 +1,10 @@
+sphinx==4.0.2                     
+sphinxcontrib-napoleon
+# sphinx-press-theme          
+# sphinx-rtd-theme            
+# insegel                     
+pydata-sphinx-theme           
+sphinx-mathjax-offline==0.0.1
+seed_intersphinx_mapping==0.5.0
+recommonmark 
+nbsphinx

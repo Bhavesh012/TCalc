@@ -12,20 +12,20 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../TCalc'))
 
 
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'Telescope-Calculator'
+project = 'TCalc: Telescope-Calculator'
 copyright = '2021, Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton'
 author = 'Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton'
 master_doc='index'
 
 # The full version, including alpha/beta/rc tags
-release = "1.0.0"
+release = "1.1.1"
 
 
 # -- General configuration ---------------------------------------------------
@@ -36,11 +36,11 @@ release = "1.0.0"
 extensions = ["sphinx.ext.autodoc",
             "sphinx.ext.napoleon",
             "sphinx.ext.mathjax", 
-            # "sphinx-mathjax-offline",
-            "sphinx.ext.inheritance_diagram",
+            "sphinx-mathjax-offline",
             'sphinx.ext.autosummary', 
-            'sphinx_autopackagesummary',
-            "seed_intersphinx_mapping"]
+            "seed_intersphinx_mapping",
+            "recommonmark",
+            "nbsphinx"]
 
 autosummary_generate = True
 
@@ -81,19 +81,20 @@ html_theme_options = {
       ],
     "icon_links": [{
             "name": "GitHub",
-            "url": "https://github.com/Bhavesh012/Telescope-Calculator",
+            "url": "https://github.com/Bhavesh012/TCalc",
             "icon": "fab fa-github-square",}
             ],
     "use_edit_page_button": True,
     "page_sidebar_items": ["page-toc", "edit-this-page", "search-field"],
     "footer_items": ["copyright", "sphinx-version"],
+    "collapse_navigation": True
 
 }
 
 html_context = {
     # "github_url": "https://github.com", # or your GitHub Enterprise interprise
     "github_user": "Bhavesh Rajpoot",
-    "github_repo": "Telescope-Calculator",
+    "github_repo": "TCalc",
     "github_version": "main",
     "doc_path": ".\docs",
 }

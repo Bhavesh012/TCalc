@@ -1,3 +1,4 @@
+  
 from TCalc.tcalc import barlow_lens, eyepiece, focal_reducer, telescope
 
 piece1 = eyepiece(5, 50)

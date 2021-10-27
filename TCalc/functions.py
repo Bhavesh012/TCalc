@@ -1,20 +1,16 @@
 import numpy as np
-import astropy.units as u 
 
-from age_eye import age_to_eye_diameter
+from TCalc.age_eye import age_to_eye_diameter
 
 # This first set of functions are dependent ONLY on the telescope
 # and don't require any information about the eyepiece
 def focal_ratio(f_o,D_o):
     """Calculates the Focal Ratio for the telescope
-
     Args:
         f_o(float): Focal Length of Objective/Aperture (mm)
         D_o(float): Diameter of Objective/Aperture (mm)
-
     Returns:
         float: Focal Ratio/f-number (:math: `f_R`) of the telescope
-
     """
     return f_o/D_o
 
@@ -23,13 +19,11 @@ def dawes_lim(D_o):
     
     Args:
          D_o (float): Diameter of Objective/Aperture (mm)
-
     Returns:
         float: Resolving power of the telescope arroding to Dawes Limit (arc-sec)
     
     Note: 
         This function is generally useful when you are doing filter-less observations. For operation with filters, check Resolution Power function.
-
     """ 
     return 115.8/D_o
 
@@ -39,19 +33,16 @@ def resolving_power(W,D_o):
     Args:
         W (float): Wavelength of light recieved (nm)
         D_o (float): Diameter of Objective/Aperture (mm)
-
     Returns:
         float: Resolving power of the telescope (:math: `P_R`) (arc-sec)
     
     Note: 
         This function is generally useful when you are using filters. For filter-less observations, check Dawes Limit function.
-
     """
     return 0.2516616*(W/D_o)
 
 def Min_magnification(D_o,D_eye=7,age=None):
     """Calulates the minimum usable magnification of the telescope 
-
     Args:
          D_o (float): Diameter of Objective/Aperture (mm)
          D_eye (float): Diameter of Eyepiece (mm); default is 7 mm
@@ -68,10 +59,8 @@ def Min_magnification(D_o,D_eye=7,age=None):
 
 def Max_magnification(D_o):
     """Calulates the maximum usable magnification of the telescope 
-
     Args:
          D_o (float): Diameter of Objective/Aperture (mm)
-
     Returns:
         float: Maximum Usable Magnification (:math: `M_max`) of the telescope
     
@@ -82,7 +71,6 @@ def Max_magnification(D_o):
 
 def Min_eyepiece(f_o,M_max):
     """Calulates the minimum focal length of eyepiece you can use on the telescope 
-
     Args:
          f_o (float): Focal length of Objective/Aperture (mm)
          M_max (float): Maximum usable magnification
@@ -94,7 +82,6 @@ def Min_eyepiece(f_o,M_max):
 
 def Max_eyepiece(f_R, D_eye=7, age=None):
     """Calulates the maximum focal length of eyepiece you can use on the telescope 
-
     Args:
          D_eye (float): Diameter of Eyepiece (mm); default is 7 mm
          f_R (float): Focal Ratio/f-number of telescope
@@ -124,24 +111,19 @@ def Lmag_limit(D_o):
 # and the eyepiece, and no other information
 def magnification(f_o,f_e):
     """Calculates the Angular Magnification for the telescope
-
     Args:
         f_o(float): Focal Length of Objective/Aperture (mm)
         f_e(float): Focal Length of Eyepiece (mm)
-
     Returns:
         float: Visual Magnification (M) of the telescope
-
     """
     return f_o/f_e
 
 def true_fov(M, fov_e=50):
     """Calulates the True Field of View (FOV) of the telescope & eyepiece pair 
-
     Args:
         fov_e (float): FOV of eyepiece; default 50 deg
         M (float): Magnification of Telescope
-
     Returns:
         float: True Field of View (deg)
     
@@ -150,17 +132,14 @@ def true_fov(M, fov_e=50):
 
 def exit_pupil(f_e,f_R):
     """Calulates the Exit Pupil of the telescope & eyepiece pair 
-
     Args:
         f_e (float): Focal Length of eyepiece (mm)
         f_R (float): Focal Ratio of telescope
-
     Returns:
         float: Diameter of Exit Pupil(:math: `D_EP`) (mm)
     
     Note:
         For optimal usage, :math: `D_EP \approx 2-3 mm` is the optimum range for maximizing the resolving power of the eye
-
     """
     return f_e/f_R
 
@@ -174,6 +153,9 @@ def surface_brightness(D_EP):
         percentage: Surface Brightness (SB)
     """
     return 2*(D_EP**2) 
+
+
+
 
 
 

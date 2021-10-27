@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCalc: Telescope-Calculator &#8212; TCalc: Telescope-Calculator 1.1.1 documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorials.html" />
+    <link rel="prev" title="Welcome to TCalc’s documentation!" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="index.html">
+<p class="title">TCalc: Telescope-Calculator</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  TCalc: Telescope-Calculator
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorials.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api.html">
+  API
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Bhavesh012/TCalc" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting Started
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     Installation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-pip">
+       Using
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pip
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-github">
+       Using GitHub
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-usage">
+     Basic Usage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tutorials">
+     Tutorials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Bhavesh Rajpoot/TCalc/edit/main/.\docs/README.md">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+              </div>
+              
+              <div class="toc-item">
+                <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="tcalc-telescope-calculator">
+<h1>TCalc: Telescope-Calculator<a class="headerlink" href="#tcalc-telescope-calculator" title="Permalink to this headline">¶</a></h1>
+<p>TCalc is a general toolkit designed for all the telescope owners and enthusiasts! This package has a set of functions that will allow you to calculate basic properties and performance of your telescope and eyepiece pair.</p>
+<p><a class="reference external" href="https://badge.fury.io/py/TCalc"><img alt="PyPI version" src="https://badge.fury.io/py/TCalc.svg" /></a>
+<a class="reference external" href="https://tcalc.readthedocs.io/en/latest/README.html"><img alt="Documentation Status" src="https://readthedocs.org/projects/tcalc/badge/?version=latest" /></a>
+<a class="reference external" href="https://requires.io/github/Bhavesh012/TCalc/requirements/?branch=main"><img alt="Requirements Status" src="https://requires.io/github/Bhavesh012/TCalc/requirements.svg?branch=main" /></a>
+<a class="reference external" href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-brightgreen.svg" /></a>
+<a class="reference external" href="https://github.com/Bhavesh012/TCalc/actions/workflows/python-app.yml"><img alt="Python application" src="https://github.com/Bhavesh012/TCalc/actions/workflows/python-app.yml/badge.svg" /></a></p>
+<!-- add badges from pypistats, travis.ci, coveralls.io --><p>TCalc has taken birth from the project task of Code/Astro Workshop 2021 hosted by Grad students of Caltech. The authors of this project are Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai and Dylon Benton.
+The package aims to save time and money for all the telescope owners and enthusiasts by telling them the overall configuration of their instrument and suggesting them optimal accessories for their telescope.</p>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>Docmentation is available <a class="reference external" href="https://tcalc.readthedocs.io/en/latest/?badge=latest">here.</a> <!-- (http://radvel.readthedocs.io/) --></p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>TCalc is a cross-platform python package and works on almost every OS. There are two ways to install the package:</p>
+<div class="section" id="using-pip">
+<h4>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code><a class="headerlink" href="#using-pip" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tcalc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-github">
+<h4>Using GitHub<a class="headerlink" href="#using-github" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Bhavesh012</span><span class="o">/</span><span class="n">TCalc</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">TCalc</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<h3>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">TCalc.tcalc</span> <span class="kn">import</span> <span class="n">telescope</span><span class="p">,</span> <span class="n">eyepiece</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_telescope</span> <span class="o">=</span> <span class="n">telescope</span><span class="p">(</span><span class="n">D_o</span> <span class="o">=</span> <span class="mf">203.2</span><span class="p">,</span> <span class="n">f_o</span> <span class="o">=</span> <span class="mi">2032</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eyepiece1</span> <span class="o">=</span> <span class="n">eyepiece</span><span class="p">(</span><span class="n">f_e</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">fov_e</span> <span class="o">=</span> <span class="mi">52</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_telescope</span><span class="o">.</span><span class="n">add_eyepiece</span><span class="p">(</span><span class="n">eyepiece1</span><span class="p">,</span><span class="n">select</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_telescope</span><span class="o">.</span><span class="n">say_configuration</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span>
+
+<span class="n">The</span> <span class="n">telescope</span> <span class="n">has</span> <span class="n">the</span> <span class="n">following</span> <span class="n">layout</span><span class="p">:</span>
+   <span class="n">Aperture</span> <span class="n">diameter</span><span class="p">:</span> <span class="mf">203.2</span> <span class="n">mm</span>
+   <span class="n">Focal</span> <span class="n">length</span><span class="p">:</span> <span class="mi">2032</span> <span class="n">mm</span><span class="p">,</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="n">a</span> <span class="n">focal</span> <span class="n">ratio</span> <span class="n">of</span> <span class="mf">10.0</span>
+
+<span class="n">In</span> <span class="n">good</span> <span class="n">atmospheric</span> <span class="n">conditions</span><span class="p">,</span> <span class="n">the</span> <span class="n">resolution</span> <span class="n">of</span> <span class="n">the</span> <span class="n">telescope</span> <span class="p">(</span><span class="n">Dawes</span> <span class="n">limit</span><span class="p">)</span> <span class="ow">is</span> <span class="mf">0.6</span> <span class="n">arcseconds</span>
+<span class="n">By</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">the</span> <span class="n">resolution</span> <span class="ow">is</span>
+   <span class="mi">400</span> <span class="n">nm</span> <span class="p">(</span><span class="n">blue</span><span class="p">):</span> <span class="mf">0.5</span> <span class="n">arcsec</span>
+   <span class="mi">550</span> <span class="n">nm</span> <span class="p">(</span><span class="n">green</span><span class="p">):</span> <span class="mf">0.7</span> <span class="n">arcsec</span>
+   <span class="mi">700</span> <span class="n">nm</span> <span class="p">(</span><span class="n">red</span><span class="p">):</span> <span class="mf">0.9</span> <span class="n">arcsec</span>
+
+<span class="n">The</span> <span class="n">maximum</span> <span class="n">possible</span> <span class="n">magnification</span> <span class="n">factor</span> <span class="ow">is</span> <span class="mf">406.4</span>
+<span class="n">This</span> <span class="n">means</span> <span class="n">the</span> <span class="n">minimum</span> <span class="n">compatible</span> <span class="n">eyepiece</span> <span class="n">focal</span> <span class="n">length</span> <span class="ow">is</span> <span class="mf">5.0</span> <span class="n">mm</span>
+
+<span class="n">The</span> <span class="n">minimum</span> <span class="n">magnification</span> <span class="n">factor</span> <span class="ow">and</span> <span class="n">corresponding</span> <span class="n">maximum</span> <span class="n">eyepiece</span> <span class="n">focal</span> <span class="n">length</span> <span class="n">depend</span> <span class="n">on</span> <span class="n">the</span> <span class="n">diameter</span> <span class="n">of</span> <span class="n">the</span> <span class="n">observer</span><span class="s1">&#39;s eye.</span>
+<span class="n">For</span> <span class="n">a</span> <span class="n">telescope</span> <span class="n">user</span> <span class="k">with</span> <span class="n">an</span> <span class="n">eye</span> <span class="n">diameter</span> <span class="n">of</span> <span class="mi">7</span> <span class="n">mm</span> <span class="p">(</span><span class="n">apropriate</span> <span class="k">for</span> <span class="n">an</span> <span class="n">age</span> <span class="n">around</span> <span class="mi">25</span> <span class="n">years</span><span class="p">):</span>
+   <span class="n">The</span> <span class="n">minimum</span> <span class="n">magnification</span> <span class="n">factor</span> <span class="ow">is</span> <span class="mf">29.0</span>
+   <span class="n">This</span> <span class="n">means</span> <span class="n">the</span> <span class="n">maximum</span> <span class="n">compatible</span> <span class="n">eyepiece</span> <span class="n">focal</span> <span class="n">length</span> <span class="ow">is</span> <span class="mf">406.4</span> <span class="n">mm</span>
+
+<span class="n">The</span> <span class="n">faintest</span> <span class="n">star</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">seen</span> <span class="n">by</span> <span class="n">this</span> <span class="n">telescope</span> <span class="ow">is</span> <span class="mf">13.5</span> <span class="n">mag</span>
+
+<span class="n">The</span> <span class="n">currently</span> <span class="n">selected</span> <span class="n">eyepiece</span> <span class="ow">is</span> <span class="s1">&#39;omni_25&#39;</span><span class="p">,</span> <span class="n">which</span> <span class="n">has</span> <span class="n">the</span> <span class="n">following</span> <span class="n">layout</span><span class="p">:</span>
+   <span class="n">Focal</span> <span class="n">length</span><span class="p">:</span> <span class="mi">25</span> <span class="n">mm</span>
+   <span class="n">Field</span> <span class="n">of</span> <span class="n">view</span><span class="p">:</span> <span class="mi">52</span> <span class="n">degrees</span>
+
+<span class="n">With</span> <span class="n">this</span> <span class="n">eyepiece</span><span class="p">:</span>
+   <span class="n">The</span> <span class="n">magnification</span> <span class="n">factor</span> <span class="ow">is</span> <span class="mf">81.3</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">compatible</span> <span class="k">with</span> <span class="n">the</span> <span class="n">telescope</span> <span class="n">limits</span><span class="o">.</span>
+   <span class="n">The</span> <span class="n">true</span> <span class="n">field</span> <span class="n">of</span> <span class="n">view</span> <span class="ow">is</span> <span class="mi">1</span> <span class="n">degrees</span>
+   <span class="n">The</span> <span class="n">exit</span> <span class="n">pupil</span> <span class="n">diameter</span> <span class="ow">is</span> <span class="mf">2.5</span> <span class="n">mm</span>
+
+<span class="n">The</span> <span class="n">faintest</span> <span class="n">surface</span> <span class="n">brightness</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">seen</span> <span class="n">by</span> <span class="n">this</span> <span class="n">telescope</span> <span class="ow">is</span> <span class="mf">12.50</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tutorials">
+<h3>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="%5Cdocs%5Ctutorials%5CTCalc_tutorial.ipynb">‘Base Tutorial’</a></p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Welcome to TCalc’s documentation!</a>
+    <a class='right-next' id="next-link" href="tutorials.html" title="next page">Tutorial</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Bhavesh Rajpoot, Ryan Keenan, Binod Bhattarai, Dylon Benton.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
