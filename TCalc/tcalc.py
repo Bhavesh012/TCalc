@@ -59,7 +59,7 @@ class focal_reducer:
         self.optic_type = 'focal reducer'
 
 class barlow_lens:
-    """Class representing a single Barlow lense
+    """Class representing a single Barlow lens
     Args:
         barlow (float greater than 1): the Barlow factor, default is 2
     """
@@ -376,8 +376,8 @@ class telescope:
         """
 
         print("\n   The telescope has the following layout:")
-        print("      Aperture diameter: {} mm".format(self.D_o))
-        print("      Focal length: {} mm, corresponding to a focal ratio of {}".format(self.f_o_true,self.f_R_true))
+        print("      Aperture Diameter:",'\033[1m' + '{} mm'.format(self.D_o) + '\033[0m')
+        print("      Focal length:",'\033[1m' + '{} mm'.format(self.f_o_true) + '\033[0m', ", corresponding to a focal ratio of" ,'\033[1m' + '{} mm'.format(self.f_R_true) + '\033[0m')
         if self.current_optic is not None:
             if self.current_optic.optic_type == 'Barlow lens':
                 action = 'increases'
@@ -385,31 +385,31 @@ class telescope:
                 action = 'decreases'
             print("   '{}', a {}, has been added to the optical path. This {} the focal length by {}".format(self.current_optic_id,self.current_optic.optic_type,action,self.current_optic.P))
             print("   This results in")
-            print("      Focal length: {} mm, corresponding to a focal ratio of {}".format(self.f_o,self.f_R))
+            print("      Focal Length: {} mm, corresponding to a Focal Ratio of {}".format(self.f_o,self.f_R))
         print("")
-        print("   In good atmospheric conditions, the resolution of the telescope (Dawes limit) is {:.1f} arcseconds".format(self.Dawes_lim))
+        print("   In good atmospheric conditions, the resolution of the telescope (Dawes Limit) is", '\033[1m'+"{:.2f} arcseconds".format(self.Dawes_lim)+'\033[0m')
         print("   By wavelength, the resolution is")
-        print("      {} nm (blue): {:.1f} arcsec".format(blue,self.blue_P_R))
-        print("      {} nm (green): {:.1f} arcsec".format(green,self.green_P_R))
-        print("      {} nm (red): {:.1f} arcsec".format(red,self.red_P_R))
+        print("      {} nm (blue): {:.2f} arcsec".format(blue,self.blue_P_R))
+        print("      {} nm (green): {:.2f} arcsec".format(green,self.green_P_R))
+        print("      {} nm (red): {:.2f} arcsec".format(red,self.red_P_R))
         print("")
 
         age = eye_to_age(self.user_D_eye)
-        print("   The maximum possible magnification factor is {:.1f}".format(self.M_max))
-        print("   This means the minimum compatible eyepiece focal length is {:.1f} mm".format(self.f_e_min))
+        print("   The", '\033[3m'+"maximum"+'\033[0m', "possible Magnification Factor is {:.2f}".format(self.M_max))
+        print("   This means the", '\033[3m'+"minimum"+'\033[0m', "compatible eyepiece focal length is {:.2f} mm".format(self.f_e_min))
         print("")
         print("   The minimum magnification factor and corresponding maximum eyepiece focal length depend on the diameter of the observer's eye.")
         print("   For a telescope user with an eye diameter of {} mm (apropriate for an age around {} years):".format(self.user_D_eye,age))
-        print("      The minimum magnification factor is {:.1f}".format(self.M_min))
-        print("      This means the maximum compatible eyepiece focal length is {:.1f} mm".format(self.M_max))
+        print("      The", '\033[3m'+"minimum"+'\033[0m', "Magnification Factor is {:.2f}".format(self.M_min))
+        print("      This means the", '\033[3m'+"maximum"+'\033[0m', "compatible eyepiece focal length is {:.2f} mm".format(self.M_max))
         print("")
-        print("   The faintest star that can be seen by this telescope is {:.1f} mag".format(self.Lmag_limit))
+        print("   The", '\033[3m'+"faintest"+'\033[0m', "star that can be seen by this telescope is {:.3f} mag".format(self.Lmag_limit))
 
         if self.current_eyepiece is not None:
             print("")
-            print("   The currently selected eyepiece is '{}', which has the following layout:".format(self.current_eyepiece_id))
-            print("      Focal length: {} mm".format(self.current_eyepiece.f_e))
-            print("      Field of view: {} degrees".format(self.current_eyepiece.fov_e))
+            print("   The currently selected eyepiece is",'\033[1m' + '{}'.format(self.current_eyepiece_id) + '\033[0m',"which has the following layout:")
+            print("      Focal Length:",'\033[1m' + '{} mm'.format(self.current_eyepiece.f_e) + '\033[0m')
+            print("      Field of View:",'\033[1m' + '{} degrees'.format(self.current_eyepiece.fov_e)  + '\033[0m')
             print("")
 
             if self.compatible_eyepiece:
@@ -417,11 +417,11 @@ class telescope:
             else:
                 compatible = 'IS NOT'
             print("   With this eyepiece:")
-            print("      The magnification factor is {:.1f}. This {} compatible with the telescope limits.".format(self.M,compatible))
-            print("      The true field of view is {:.0f} degrees".format(self.fov))
-            print("      The exit pupil diameter is {:.1f} mm".format(self.D_EP))
+            print("      The Magnification Factor is",'\033[1m' + '{:.2f}'.format(self.M)  + '\033[0m', ". This {} compatible with the telescope limits.".format(compatible))
+            print("      The True Field of View is",'\033[1m' + '{:.3f} degrees'.format(self.fov)  + '\033[0m')
+            print("      The Exit Pupil Diameter is",'\033[1m' + "{:.2f} mm".format(self.D_EP)  + '\033[0m')
             print("")
-            print("   The faintest surface brightness that can be seen by this telescope is {:.2f}".format(self.SB))
+            print("   The", '\033[3m'+"faintest"+'\033[0m', "surface brightness that can be seen by this telescope is", '\033[3m'+"{:.3f}".format(self.SB)+'\033[0m')
         print("")
 
     def show_resolving_power(self,seeing=2.5):
@@ -498,7 +498,7 @@ class telescope:
         self.f_R_true = focal_ratio(self.f_o_true,self.D_o)
 
     def _compute_dawes_limit(self):
-        """Compute the Dawes limit of the telescope
+        """Compute the Dawes limit of the telescope-eyepiece pair
         Args:
             None
         Returns:
@@ -519,7 +519,6 @@ class telescope:
         self.blue_P_R = resolving_power(blue,self.D_o)
         self.green_P_R = resolving_power(green,self.D_o)
         self.red_P_R = resolving_power(red,self.D_o)
-
 
     def _compute_min_mag(self):
         """Compute the minimum magnification of the telescope
